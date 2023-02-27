@@ -1,26 +1,28 @@
 <div class="container">
     <div class="card">
-       <form (ngSubmit) ="doSubmit()">
+      
+        <form (ngSubmit) ="doSubmit()">
+
         <h1>Signup..</h1>
-        {{user | json}}
+        {{data | json}}
         <mat-form-field class="fields" appearance="outline">
             <mat-label>Name</mat-label>
-            <input name="Name"  matInput>
+            <input name="name" [(ngModel)]="data.name"  matInput>
           </mat-form-field>
 
         <mat-form-field class="fields" appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput required="required">
+            <input type="email" name="email" [(ngModel)]="data.email" matInput required="required">
           </mat-form-field>
 
           <mat-form-field class="fields" appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput required="required">
+            <input type="password" name="password" [(ngModel)]="data.pass" matInput required="required">
           </mat-form-field>
 
           <mat-form-field class="fields" appearance="outline">
             <mat-label>About</mat-label>
-            <input matInput>
+            <input name="about" [(ngModel)]="data.about" matInput>
           </mat-form-field>
 
         <div class="text-center">
@@ -28,6 +30,7 @@
           <button type="reset"  mat-stroked-button>Reset</button>
         </div>
     </form>
+
     </div>
 
 

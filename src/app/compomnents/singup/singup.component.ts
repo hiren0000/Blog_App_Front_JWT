@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingupComponent implements OnInit {
 
-  user= {
-    Name: "",
+  data= {
+    name: "",
     email:"",
     pass:"",
-    about: ""
+    about: "",
   }
 
   constructor() { }
