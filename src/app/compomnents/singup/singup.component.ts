@@ -22,6 +22,8 @@ export class SingupComponent implements OnInit {
   doSubmit()
   {
     console.log("try to submit signup form"); 
+    console.log("Data", this.data);
+    
   }
 
 }
