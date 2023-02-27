@@ -14,6 +14,7 @@ import { LoginComponent } from './compomnents/login/login.component'
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { SingupComponent } from './compomnents/singup/singup.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { SingupComponent } from './compomnents/singup/singup.component';
     MatToolbarModule,
     MatIconModule,
    FormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
+ 
   ],
   providers: [MatSnackBarModule],
   bootstrap: [AppComponent]
