@@ -15,6 +15,7 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { SingupComponent } from './compomnents/singup/singup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SingupService } from './service/singup.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
  
   ],
-  providers: [MatSnackBarModule],
+  providers: [MatSnackBarModule, SingupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

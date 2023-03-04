@@ -12,7 +12,7 @@ export class SingupComponent implements OnInit {
   data= {
     name: "",
     email:"",
-    pass:"",
+    password:"",
     about: "",
   }
 
@@ -26,17 +26,23 @@ export class SingupComponent implements OnInit {
     console.log("try to submit signup form"); 
     console.log("Data", this.data);
     
-    if(this.data.name=="" || this.data.email=="" || this.data.pass=="" || this.data.about=="")
+    if(this.data.name=="" || this.data.email=="" || this.data.password=="" || this.data.about=="")
     {
       this.snak.open("fields should not be empty","Ok" );
+      return
     }
     
-    this.signup.register(this.data);
-       
+    this.signup.register(this.data).subscribe
+    ( response=>
+      {
+        console.log(response);
+      },
+      error=>
+      {
+        console.log(error);
+      }
+    ) 
+          
         
-
-   
-    
   }
-
 }
