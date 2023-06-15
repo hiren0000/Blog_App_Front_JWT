@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,12 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class SingupService {
 
-  private baseUrl:string = "http://localhost:9990"
+  private baseUrl:string = "http://localhost:9900"
 
   constructor(private http:HttpClient) { }
 
   register(data:any)
   {
-    return this.http.post(`${this.baseUrl}/signup`, data)
+    return this.http.post(`${this.baseUrl}/api/users/`, data)
+  }
+
+  // login function 
+  login(username:string,password:string){
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this.http.get("http://localhost:8080/",{headers,responseType: 'text' as 'json'})
   }
 }

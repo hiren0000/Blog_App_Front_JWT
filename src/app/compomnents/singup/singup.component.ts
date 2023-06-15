@@ -33,15 +33,17 @@ export class SingupComponent implements OnInit {
     }
     
     this.signup.register(this.data).subscribe
-    ( response=>
+    ({ next: (response)=>
       {
         console.log(response);
+        this.snak.open("User has successfully saved in database","Ok" );
       },
-      error=>
+      error: (error)=>
       {
         console.log(error);
+        this.snak.open("Something wrong with saving user data !!","Ok" );
       }
-    ) 
+  }); 
           
         
   }
