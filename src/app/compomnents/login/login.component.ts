@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { LoginServiceService } from 'src/app/service/login-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,81 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+ loginData =
+ {
+    email:"",
+    pass:"",
+ };
 
-  ngOnInit(): void {
+  constructor(private snack:MatSnackBar, private login:LoginServiceService, private router:Router) { }
+
+  ngOnInit(): void 
+  {
+
+  }
+
+   loginForm()
+  {
+    console.log("log in btn clicked ");
+
+//Validations------------------------------------------------------------------------------------------
+    if(this.loginData.email == null || this.loginData.email.trim() == '')   
+    {
+      this.snack.open('Email is required !!', 'ok');
+      return;
+    } 
+    if(this.loginData.pass == null || this.loginData.pass.trim() == '')   
+    {
+      this.snack.open('Password is required !!', 'ok');
+      return;
+            
+    }
+
+//Generating token via request our server====================================================
+    this.login.generateToken(this.loginData).subscribe({
+      next: (data:any)=>
+      {
+        console.log(data);
+        console.log('success');
+        
+        //Login----------------------------------------------setting token into the local storage 
+        this.login.loginUser(data.token);
+        
+        
+
+        
+         //Getting current user data from DB=========================================================
+         this.login.currentUser().subscribe({
+          next: (user:any)=>
+          {
+            console.log(user);
+
+            //saving user data into the localstorage-----------------------------
+            this.login.setUser(user);
+            
+             //Redirecting to the Admin-dash----------------------------
+
+             //Redurecting to the USer-dash------------------
+            
+          },
+          error: (error)=>
+          {
+            console.log(error);
+            Swal.fire('Error','error fetching with current user data !! ', 'error');
+          }
+
+         });
+        
+      },
+      error: (error)=>
+      {
+        console.log(error);
+        Swal.fire('Error','Something wrong with server !! ', 'error');
+        
+      }
+    });
+
+      
   }
 
 }

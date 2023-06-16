@@ -16,6 +16,8 @@ import {MatInputModule} from '@angular/material/input';
 import { SingupComponent } from './compomnents/singup/singup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SingupService } from './service/singup.service';
+import {MatCardModule} from '@angular/material/card';
+import { authInterceptorProviders } from './service/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,11 @@ import { SingupService } from './service/singup.service';
     MatIconModule,
    FormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
  
   ],
-  providers: [MatSnackBarModule, SingupService],
+  providers: [MatSnackBarModule, SingupService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
