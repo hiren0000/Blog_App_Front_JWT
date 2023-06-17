@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './compomnents/home/home.component';
 import { LoginComponent } from './compomnents/login/login.component';
 import { SingupComponent } from './compomnents/singup/singup.component';
+import { AdminDashComponent } from './compomnents/admin/admin-dash/admin-dash.component';
+import { UserDashComponent } from './compomnents/user/user-dash/user-dash.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,18 @@ const routes: Routes = [
     path:"signup",
     component:SingupComponent,
     pathMatch:"full"
+  },
+
+  {
+    path: 'admin-dash',
+    component: AdminDashComponent,
+    pathMatch: 'full',
+  },
+
+  {
+    path: 'user-dash',
+    component: UserDashComponent,
+    pathMatch: 'full',
   }
  
 ];

@@ -64,8 +64,20 @@ export class LoginComponent implements OnInit {
             this.login.setUser(user);
             
              //Redirecting to the Admin-dash----------------------------
-
+            if(this.login.getUserRole() == 'ADMIN')
+            {
+              this.router.navigate(['admin-dash']);
+            }
              //Redurecting to the USer-dash------------------
+             else if(this.login.getUserRole()== 'NORMAL')
+             {
+              this.router.navigate(['user-dash']);
+             }
+             else
+             {
+              this.login.logOut();
+              location.reload();
+             }
             
           },
           error: (error)=>
