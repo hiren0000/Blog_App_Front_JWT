@@ -5,6 +5,8 @@ import { LoginComponent } from './compomnents/login/login.component';
 import { SingupComponent } from './compomnents/singup/singup.component';
 import { AdminDashComponent } from './compomnents/admin/admin-dash/admin-dash.component';
 import { UserDashComponent } from './compomnents/user/user-dash/user-dash.component';
+import { AdminGuard } from './service/admin.guard';
+import { NormalGuard } from './service/normal.guard';
 
 const routes: Routes = [
   {
@@ -29,12 +31,14 @@ const routes: Routes = [
     path: 'admin-dash',
     component: AdminDashComponent,
     pathMatch: 'full',
+    canActivate: [AdminGuard],
   },
 
   {
     path: 'user-dash',
     component: UserDashComponent,
     pathMatch: 'full',
+    canActivate: [NormalGuard],
   }
  
 ];
