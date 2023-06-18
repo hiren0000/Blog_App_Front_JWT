@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SingupService } from './service/singup.service';
 import {MatCardModule} from '@angular/material/card';
 import { authInterceptorProviders } from './service/auth.interceptor';
+import { AdminDashComponent } from './compomnents/admin/admin-dash/admin-dash.component';
+import { UserDashComponent } from './compomnents/user/user-dash/user-dash.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { authInterceptorProviders } from './service/auth.interceptor';
     NavbarComponent,
     HomeComponent,
     LoginComponent,
-    SingupComponent
+    SingupComponent,
+    AdminDashComponent,
+    UserDashComponent
   ],
   imports: [
     BrowserModule,

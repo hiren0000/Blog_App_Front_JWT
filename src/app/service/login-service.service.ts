@@ -10,7 +10,7 @@ export class LoginServiceService {
   constructor(private http:HttpClient) { }
 
 
-//Fetching Current User data
+//Fetching Current User data-----------------------------------------------------------------------------------
       public currentUser()
       {
         return this.http.get(`${baseUrl}/api/auth/current-user`);
@@ -47,6 +47,7 @@ export class LoginServiceService {
         public logOut()
         {
          localStorage.removeItem('token');
+         this.removeUSer();
           return true;
         }
 
@@ -62,6 +63,13 @@ export class LoginServiceService {
           return localStorage.setItem('user', JSON.stringify(user));
 
         }
+
+//removing user dettails----------------------------------------------------------------------------------------------
+        public removeUSer()
+        {
+           localStorage.removeItem('user');
+           return true;
+        }        
 
  //getting User details--------------------------------------------------------------------------------------------- 
       public getUser()
