@@ -7,6 +7,8 @@ import { AdminDashComponent } from './compomnents/admin/admin-dash/admin-dash.co
 import { UserDashComponent } from './compomnents/user/user-dash/user-dash.component';
 import { AdminGuard } from './service/admin.guard';
 import { NormalGuard } from './service/normal.guard';
+import { ProfileComponent } from './compomnents/admin/profile/profile.component';
+import { WelcomeComponent } from './compomnents/admin/welcome/welcome.component';
 
 const routes: Routes = [
   {
@@ -30,8 +32,21 @@ const routes: Routes = [
   {
     path: 'admin-dash',
     component: AdminDashComponent,
-    pathMatch: 'full',
     canActivate: [AdminGuard],
+
+    children: [
+      {
+        path: '',
+        component: WelcomeComponent,
+      
+      },
+
+      {
+        path: 'profile',
+        component: ProfileComponent,
+
+      }
+    ]
   },
 
   {
