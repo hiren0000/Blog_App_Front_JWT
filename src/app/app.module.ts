@@ -26,6 +26,8 @@ import {MatListModule} from '@angular/material/list';
 import { WelcomeComponent } from './compomnents/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './compomnents/admin/view-categories/view-categories.component';
 import { AddCategoryComponent } from './compomnents/admin/add-category/add-category.component';
+import { AddPostComponent } from './compomnents/admin/add-post/add-post.component';
+import { ViewPostComponent } from './compomnents/admin/view-post/view-post.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { AddCategoryComponent } from './compomnents/admin/add-category/add-categ
     SideBarComponent,
     WelcomeComponent,
     ViewCategoriesComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    AddPostComponent,
+    ViewPostComponent
   ],
 
   imports: [
