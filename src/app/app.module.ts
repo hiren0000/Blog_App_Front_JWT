@@ -20,6 +20,13 @@ import {MatCardModule} from '@angular/material/card';
 import { authInterceptorProviders } from './service/auth.interceptor';
 import { AdminDashComponent } from './compomnents/admin/admin-dash/admin-dash.component';
 import { UserDashComponent } from './compomnents/user/user-dash/user-dash.component';
+import { ProfileComponent } from './compomnents/admin/profile/profile.component';
+import { SideBarComponent } from './compomnents/admin/side-bar/side-bar.component';
+import {MatListModule} from '@angular/material/list';
+import { WelcomeComponent } from './compomnents/admin/welcome/welcome.component';
+import { ViewCategoriesComponent } from './compomnents/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './compomnents/admin/add-category/add-category.component';
+
 
 @NgModule({
   declarations: [
@@ -29,8 +36,14 @@ import { UserDashComponent } from './compomnents/user/user-dash/user-dash.compon
     LoginComponent,
     SingupComponent,
     AdminDashComponent,
-    UserDashComponent
+    UserDashComponent,
+    ProfileComponent,
+    SideBarComponent,
+    WelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoryComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,10 +52,11 @@ import { UserDashComponent } from './compomnents/user/user-dash/user-dash.compon
     MatSnackBarModule,
     MatToolbarModule,
     MatIconModule,
-   FormsModule,
+    FormsModule,
     MatInputModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
  
   ],
   providers: [MatSnackBarModule, SingupService, authInterceptorProviders],

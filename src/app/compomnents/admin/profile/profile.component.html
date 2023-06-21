@@ -1,0 +1,62 @@
+<mat-card *ngIf="loginService.getUser()">
+    <h2>Profile-Details</h2>
+    <!--{{user | json}}-->
+    <!--{{loginService.getUser() | json}}-->
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+          <div class="container">
+            <div class="container text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Y2LJnaCmGkiNXrQ9BDNoWPljvdLT1308iw&usqp=CAUF" class="profile-image" alt="">
+                <h1 class="mt20" > {{loginService.getUser().name}} </h1>
+                
+            </div>
+    
+            <div class="row">
+              <div class="col-md-10 offset-md-1">
+                <!--User table details-->
+                <table class="table text-center">
+                  <tr>
+                    <td>UserName</td>
+                    <td>{{loginService.getUser().email}}</td>
+                  </tr>
+    
+                  <tr>
+                    <td>UserId</td>
+                    <td>{{loginService.getUser().id}}</td>
+                  </tr>
+    
+                  <tr>
+                    <td>About</td>
+                    <td>{{loginService.getUser().about}}</td>
+                  </tr>
+    
+                  <tr>
+                    <td>Role</td>
+                    <td>{{loginService.getUser().authorities[0].authority}}</td>
+                  </tr>
+    
+                  <!-- <tr>
+                    <td>Status</td>
+                    <td>{{loginService.getUser().enabled?"ACTIVE":"NOT_ACTIVE"}}</td>
+                  </tr> -->
+    
+                </table>
+               
+                
+              </div>
+    
+            </div>
+    
+          </div>
+    
+    
+        </div>
+       
+    
+    </mat-card-content>
+    <mat-card-actions class="abc text-center">
+      <button mat-raised-button color="primary">Update</button>
+      <button mat-raised-button color="accent">Share</button>
+    </mat-card-actions>
+    
+    </mat-card>

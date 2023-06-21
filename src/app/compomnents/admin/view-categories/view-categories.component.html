@@ -1,0 +1,23 @@
+<mat-card>
+    <h1>All Categories</h1>
+    <mat-list>
+        
+        <mat-list-item *ngFor="let c of categories">
+                <mat-icon matListItemIcon>category</mat-icon>
+                <div matListItemTitle>{{c.coName}}</div>
+                <div matListItemLine>{{c.coDes}}</div>              
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            
+           
+     
+    </mat-list>
+
+    <div class="container text-center mt20">
+        <button routerLink="/admin-dash/add-new-category" mat-raised-button color="accent">Add New Category</button>
+        <button mat-raised-button color="primary">Delete</button>
+    </div>
+    
+
+
+</mat-card>
