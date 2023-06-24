@@ -13,6 +13,7 @@ import { ViewCategoriesComponent } from './compomnents/admin/view-categories/vie
 import { AddCategoryComponent } from './compomnents/admin/add-category/add-category.component';
 import { ViewPostComponent } from './compomnents/admin/view-post/view-post.component';
 import { AddPostComponent } from './compomnents/admin/add-post/add-post.component';
+import { ViewListPostsForSpeCateComponent } from './compomnents/admin/view-list-posts-for-spe-cate/view-list-posts-for-spe-cate.component';
 
 const routes: Routes = [
   {
@@ -63,13 +64,19 @@ const routes: Routes = [
       },
 
       {
+        path: 'view-list-posts-for-specific-category/:coId/:coName',
+        component:ViewListPostsForSpeCateComponent,
+        
+      },
+
+      {
         path: 'view-list-posts',
         component:ViewPostComponent,
         
       },
 
       {
-        path: 'add-new-post',
+        path: 'add-new-post/:id/:coId',
         component:AddPostComponent,
       },
     ]

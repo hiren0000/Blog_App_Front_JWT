@@ -26,11 +26,18 @@ export class ViewPostComponent implements OnInit{
     {
       id: '',
       name: '',
-      email: '',
+      email:'',
       pass: '',
       about: '',
-    },
+    }, 
+    comments :[
+      {
+        coId: '',
+        content: '',
+      }
+    ]
   },
+  
   ];
 
   constructor(private postSer:PostService) {}
@@ -38,19 +45,25 @@ export class ViewPostComponent implements OnInit{
   ngOnInit(): void 
   {
     //getting list of all the post with his user and relevant category
+    console.log('before main method !!');
+      
+    this.postSer.getListofPosts().subscribe
+  ({
+    next : (data:any) =>
+    {
+      
+      this.postData=data.content;
+      console.log(this.postData);
 
-    this.postSer.getListofPosts().subscribe({
-      next: (data:any)=>
-      {
-        this.postData=data;
-      },
-      error: (error)=>
-      {
-        console.log(error);
-        Swal.fire("Error !!", "error in fetching data", 'error');
-        
-      }
-    });
+    },
+    error: (error)=>
+    {
+      console.log(error);
+      Swal.fire("Error !!", "error in fetching data", 'error');
+
+    }
+
+  });
       
   }
 
