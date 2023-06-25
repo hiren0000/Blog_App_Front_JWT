@@ -1,1 +1,44 @@
-<p>view-list-posts-for-spe-cate works!</p>
+<div class="bootstrap-wrapper">
+    <div class="row" *ngIf="posts">
+        <div class="col-md-12">
+          
+
+<mat-card class="mt10" *ngFor="let p of posts">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{p.poTitle}}</mat-card-title>
+        <mat-card-subtitle> <p>{{p.poDate}}</p></mat-card-subtitle>
+        
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{p.poContent}}</p>
+       
+       
+    </mat-card-content>
+
+    <mat-card-actions>
+        
+        <button  mat-raised-button color="primary" class="ml10" >Update</button>
+        <button mat-raised-button color="warn" class="ml10" >Delete</button>
+       
+    </mat-card-actions>
+
+
+
+</mat-card>
+</div>
+</div>
+<!-- Add new post working on it  -->
+<div class="container text-center mt20">
+    <button mat-raised-button color="primary" [routerLink]="'/admin-dash/add-new-post/'+catId">Add New Post</button>
+</div>
+<div class="col-md-12 mt20">
+       <mat-card>
+        <mat-card-content *ngIf="posts.length == 0">
+            <h1><b>None of the Posts created yet..</b> </h1>
+        </mat-card-content>
+    </mat-card>
+   
+</div>
+</div>
+ 

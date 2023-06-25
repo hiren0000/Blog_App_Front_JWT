@@ -76,7 +76,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'add-new-post/:id/:coId',
+        path: 'add-new-post/:coId',
         component:AddPostComponent,
       },
     ]

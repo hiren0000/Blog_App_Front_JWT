@@ -13,5 +13,11 @@ export class PostService {
   public getListofPosts()
   {
     return this.http.get(`${baseUrl}/api/posts`);
+  } 
+ 
+//Fetching List of posts for specific category
+  public getListofPostsByCat(coId:any)
+  {
+    return this.http.get(`${baseUrl}/api/category/${coId}/posts`)
   }  
 }

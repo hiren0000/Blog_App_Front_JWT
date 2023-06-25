@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PostService } from 'src/app/service/post.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-list-posts-for-spe-cate',
@@ -11,7 +13,39 @@ export class ViewListPostsForSpeCateComponent implements OnInit {
   catId = '';
   catName = '';
 
-  constructor(private route:ActivatedRoute){}
+  posts =[
+    {
+     poid: '',
+     poTitle: '',
+     poImageName: '',
+     poContent: '',
+     poDate: '',
+     category: 
+     {
+       coId: '',
+       coName: '',
+       coDes: '',
+     },
+     user: 
+     {
+       id: '',
+       name: '',
+       email:'',
+       pass: '',
+       about: '',
+     }, 
+     comments :[
+       {
+         coId: '',
+         content: '',
+       }
+     ]
+   },
+   
+   ];
+
+  constructor(private route:ActivatedRoute,
+              private postSer:PostService){}
 
     ngOnInit(): void 
     {
@@ -21,9 +55,32 @@ export class ViewListPostsForSpeCateComponent implements OnInit {
       console.log(this.catId);
       console.log(this.catName);
       
-      
+     
+               
+         this.postSer.getListofPostsByCat(this.catId).subscribe
+       ({
+         next : (data:any) =>
+         {
+           
+           this.posts=data;
+           console.log(this.posts);
+     
+         },
+         error: (error)=>
+         {
+           console.log(error);
+           Swal.fire("Error !!", "error in fetching data", 'error');
+     
+         }
+     
+       });
+           
+       }
+     
+     
+     
 
-
-    }
 
 }
+
+

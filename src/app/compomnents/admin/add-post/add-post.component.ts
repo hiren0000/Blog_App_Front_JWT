@@ -8,17 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddPostComponent implements OnInit {
 
-  uId ='';
+ 
   coId = '';
 
   constructor(private route:ActivatedRoute) {}
 
   ngOnInit(): void {
-      this.uId = this.route.snapshot.params[('id')];
-      this.coId = this.route.snapshot.params[('coId')];
-
-      console.log(this.uId);
+     
+      this.coId = this.route.snapshot.params[('coId')];      
       console.log(this.coId);
+
+      //fetching Logged in user details--------------------------------------------------------------------------
       
       
 
