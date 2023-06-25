@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginServiceService } from 'src/app/service/login-service.service';
+import { PostService } from 'src/app/service/post.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-post',
@@ -11,7 +14,38 @@ export class AddPostComponent implements OnInit {
  
   coId = '';
 
-  constructor(private route:ActivatedRoute) {}
+  userData = 
+  {
+      id: '',
+      name: "",
+      email:"",
+      pass:"",
+      about: "",
+    
+  };
+
+  post =
+    {
+    
+     poTitle: '',
+     poImageName: '',
+     poContent: '',
+     poDate: '',
+     category: 
+     {
+       coId: '',
+       
+     },
+     user: 
+     {
+       id: '',
+     }, 
+    
+   };
+
+  constructor(private route:ActivatedRoute,
+              private userService:LoginServiceService,
+              private postService:PostService) {}
 
   ngOnInit(): void {
      
@@ -19,9 +53,30 @@ export class AddPostComponent implements OnInit {
       console.log(this.coId);
 
       //fetching Logged in user details--------------------------------------------------------------------------
-      
+      if(this.userService.isLoggedIn() == true)
+      {
+        this.userData = this.userService.getUser();
+      }
       
 
   }
+
+//======Adding New Post-----------------------------------------------------------------------------------------
+      addPostForm()
+      {
+        this.postService.AddNewPost(this.post, this.userData.id, this.coId).subscribe({
+          next: (data)=>
+          {
+            console.log(data);
+            Swal.fire('Success', 'Post added successfully ', 'success');
+            
+          },
+          error: (error)=>
+          {
+            console.log(error);
+            Swal.fire('Error', 'Something went wrong at server side !!', 'error');
+          }
+        });
+      }
 
 }
