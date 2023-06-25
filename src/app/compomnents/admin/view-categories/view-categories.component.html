@@ -8,6 +8,7 @@
                 <div mat-line>{{c.coDes}}</div>
                 <mat-divider></mat-divider>
                 <div class="container mt10">
+                    <button class="ml10" [routerLink]="'/admin-dash/view-list-posts-for-specific-category/'+c.coId+'/'+c.coName" mat-raised-button  color="primary">View</button>
                     <button mat-raised-button color="primary">Update</button>
                     <button mat mat-raised-button color="warn" class="ml10">Delete</button>
                 </div>              

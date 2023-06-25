@@ -1,1 +1,48 @@
-<p>add-post works!</p>
+<mat-card>
+    <h1 class="text-center">Add New Post</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <!--{{category | json}} -->
+                <form (ngSubmit)="addPostForm()">
+    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input required [(ngModel)]="post.poTitle"  type="text" name="poTitle" matInput placeholder="Post-Title*">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Image</mat-label>
+                        <input required [(ngModel)]="post.poImageName"  type="text" name="poImageName" matInput placeholder="Insert Image*" > 
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Content</mat-label>
+                        <textarea required [(ngModel)]="post.poContent"  name="poContent" type="text" matInput placeholder="Post-Content*" rows="7"></textarea>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Creation-Date</mat-label>
+                        <input required [(ngModel)]="post.poDate" name="poDate" type="date" matInput placeholder="Creation-Date*"> 
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                    </mat-form-field>
+    
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary" >Add-New-Post</button>
+                        <button type="reset" mat-raised-button color="accent" style="margin-left: 20px;">Reset</button>
+    
+                    </div>
+    
+    
+                </form>
+    </div>
+     </div>
+    </div>
+    
+    </mat-card-content>
+</mat-card>
