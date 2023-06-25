@@ -12,6 +12,7 @@ export class CategoryService {
   constructor(private http:HttpClient) { }
 
     //get all categories
+//---In this function we only can see limited categories on page because of pagination
     public getListOfCategories()
     {
       return this.http.get(`${baseUrl}/api/category/`);

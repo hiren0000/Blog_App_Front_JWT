@@ -11,6 +11,8 @@ import { ProfileComponent } from './compomnents/admin/profile/profile.component'
 import { WelcomeComponent } from './compomnents/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './compomnents/admin/view-categories/view-categories.component';
 import { AddCategoryComponent } from './compomnents/admin/add-category/add-category.component';
+import { ViewPostComponent } from './compomnents/admin/view-post/view-post.component';
+import { AddPostComponent } from './compomnents/admin/add-post/add-post.component';
 
 const routes: Routes = [
   {
@@ -58,6 +60,17 @@ const routes: Routes = [
       {
         path: 'add-new-category',
         component:AddCategoryComponent,
+      },
+
+      {
+        path: 'view-list-posts',
+        component:ViewPostComponent,
+        
+      },
+
+      {
+        path: 'add-new-post',
+        component:AddPostComponent,
       },
     ]
   },
