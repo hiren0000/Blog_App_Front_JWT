@@ -29,7 +29,7 @@ import { AddCategoryComponent } from './compomnents/admin/add-category/add-categ
 import { AddPostComponent } from './compomnents/admin/add-post/add-post.component';
 import { ViewPostComponent } from './compomnents/admin/view-post/view-post.component';
 import { ViewListPostsForSpeCateComponent } from './compomnents/admin/view-list-posts-for-spe-cate/view-list-posts-for-spe-cate.component';
-
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,8 @@ import { ViewListPostsForSpeCateComponent } from './compomnents/admin/view-list-
     MatInputModule,
     HttpClientModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
  
   ],
   providers: [MatSnackBarModule, SingupService, authInterceptorProviders],

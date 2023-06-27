@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CategoryService } from 'src/app/service/category.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
 import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 export class AddPostComponent implements OnInit {
 
  
-  coId = '';
+  
 
   userData = 
   {
@@ -43,14 +44,40 @@ export class AddPostComponent implements OnInit {
     
    };
 
+   categories = 
+   [
+    {
+      coId:'',
+      coName:'',
+      coDes: '',
+    },
+   ];
+
   constructor(private route:ActivatedRoute,
               private userService:LoginServiceService,
-              private postService:PostService) {}
+              private postService:PostService,
+              private categoryService: CategoryService) {}
 
+  //-----------------------------------------------
   ngOnInit(): void {
      
-      this.coId = this.route.snapshot.params[('coId')];      
-      console.log(this.coId);
+      // this.coId = this.route.snapshot.params[('coId')];      
+      // console.log(this.coId);
+
+ //Fetching list of categories so users can select specific category while creating new post     
+      this.categoryService.getListOfCategories().subscribe({
+        next: (data:any)=>
+        {
+          this.categories = data;      
+          
+        },
+        error: (error)=>
+        {
+          console.log(error);
+          Swal.fire('Error', 'Something went wrong at server side !!', 'error');
+        }
+      })
+
 
       //fetching Logged in user details--------------------------------------------------------------------------
       if(this.userService.isLoggedIn() == true)
@@ -61,11 +88,11 @@ export class AddPostComponent implements OnInit {
 
   }
 
-//======Adding New Post-----------------------------------------------------------------------------------------
+//Adding New Post for specific USER and Category-----------------------------------------------------------------------------------------
       addPostForm()
       {
-        this.postService.AddNewPost(this.post, this.userData.id, this.coId).subscribe({
-          next: (data)=>
+        this.postService.AddNewPost(this.post, this.userData.id, this.post.category.coId).subscribe({
+          next: (data:any)=>
           {
             console.log(data);
             Swal.fire('Success', 'Post added successfully ', 'success');

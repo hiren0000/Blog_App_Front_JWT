@@ -31,6 +31,17 @@
                             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
                         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
                     </mat-form-field>
+
+                    <br />
+
+                    <mat-form-field appearance="fill" class="full-width mt20">
+                        <mat-label>Categories</mat-label>
+                        <mat-select name='category' required [(ngModel)]="post.category.coId">
+                          <mat-option *ngFor="let c of categories" [value]="c.coId">
+                            {{c.coName}}
+                          </mat-option>
+                        </mat-select>               
+                     </mat-form-field>
     
                     <div class="container text-center">
                         <button type="submit" mat-raised-button color="primary" >Add-New-Post</button>
