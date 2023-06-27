@@ -1,11 +1,12 @@
 <mat-card>
-    <h1 class="text-center">Add New Post</h1>
+    <h1 class="text-center">Update Quiz</h1>
     <mat-card-content>
         <div class="bootstrap-wrapper">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <!--{{category | json}} -->
-                <form (ngSubmit)="addPostForm()">
+                   <!-- {{quizData | json}} -->
+    <!-------------------------------------------------------------------------------------------------------------->           
+                 <form *ngIf="post" (ngSubmit)="updatePostForm()">
     
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Title</mat-label>
@@ -43,8 +44,9 @@
                         </mat-select>               
                      </mat-form-field>
     
+    
                     <div class="container text-center">
-                        <button type="submit" mat-raised-button color="primary" >Add-New-Post</button>
+                        <button type="submit" mat-raised-button color="primary" >Update-Post</button>
                         <button type="reset" mat-raised-button color="accent" style="margin-left: 20px;">Reset</button>
     
                     </div>

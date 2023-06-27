@@ -1,7 +1,7 @@
 <div class="bootstrap-wrapper">
     <div class="row" *ngIf="posts">
         <div class="col-md-12">
-          
+          <h1 class="mt10">List of Posts for {{catName}} Category</h1>
 
 <mat-card class="mt10" *ngFor="let p of posts">
     <mat-card-header>
@@ -18,8 +18,8 @@
 
     <mat-card-actions>
         
-        <button  mat-raised-button color="primary" class="ml10" >Update</button>
-        <button mat-raised-button color="warn" class="ml10" >Delete</button>
+        <button  mat-raised-button color="primary" class="ml10" [routerLink]="'/admin-dash/update-post/'+p.poId" >Update</button>
+        <button mat-raised-button color="warn" class="ml10" (click)="deletePostById(p.poId)" >Delete</button>
        
     </mat-card-actions>
 
@@ -30,7 +30,7 @@
 </div>
 <!-- Add new post working on it  -->
 <div class="container text-center mt20">
-    <button mat-raised-button color="primary" [routerLink]="'/admin-dash/add-new-post/'+catId">Add New Post</button>
+    <button mat-raised-button color="primary" routerLink="/admin-dash/add-new-post">Add New Post</button>
 </div>
 <div class="col-md-12 mt20">
        <mat-card>

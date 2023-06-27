@@ -28,4 +28,22 @@ export class PostService {
     return this.http.get(`${baseUrl}/api/category/${coId}/posts`)
   }  
 
+//Fetching single post by id
+  public getSinglePost(poId:any)
+  {
+    return this.http.get(`${baseUrl}/api/posts/${poId}`);
+  }  
+
+//Upadating existing post by postId
+  public updatePost(post:any ,coId:any ,poId:any)  
+  {
+    return this.http.put(`${baseUrl}/api/category/${coId}/posts/${poId}`, post);
+  }
+
+//Deleting post by id
+  public deletePost(poId:any)
+  {
+    return this.http.delete(`${baseUrl}/api/posts/${poId}`);
+  }  
+
 }

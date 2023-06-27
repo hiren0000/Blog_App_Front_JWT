@@ -1,7 +1,7 @@
 <div class="bootstrap-wrapper">
     <div class="row">
         <div class="col-md-12">
-          
+          <h1 class="mt10">List of all the available Posts</h1>
 
 <mat-card class="mt10" *ngFor="let p of postData">
     <mat-card-header>
@@ -19,15 +19,20 @@
 
     <mat-card-actions>
         
-        <button  mat-raised-button color="primary" class="ml10" >Update</button>
-        <button mat-raised-button color="warn" class="ml10" >Delete</button>
+        <button  mat-raised-button color="primary" class="ml10" [routerLink]="'/admin-dash/update-post/'+p.poId" >Update</button>
+        <button mat-raised-button color="warn" class="ml10" (click)="deletePostById(p.poId)" >Delete</button>
        
     </mat-card-actions>
 
-<!-- Add new post working on it  -->
 
-<!-- <div class="container text-center mt20">
-    <button mat-raised-button color="primary" [routerLink]="'/admin-dash/add-new-post/'+p.user.id +'/'+ p.category.coId">Add New Quiz</button>
-</div> -->
 
 </mat-card>
+</div>
+</div>
+</div>
+
+<!-- Add new post working on it  -->
+
+<div class="container text-center mt20 mb20">
+    <button mat-raised-button color="primary" routerLink="/admin-dash/add-new-post">Add New Post</button>
+</div>

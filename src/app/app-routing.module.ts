@@ -14,6 +14,7 @@ import { AddCategoryComponent } from './compomnents/admin/add-category/add-categ
 import { ViewPostComponent } from './compomnents/admin/view-post/view-post.component';
 import { AddPostComponent } from './compomnents/admin/add-post/add-post.component';
 import { ViewListPostsForSpeCateComponent } from './compomnents/admin/view-list-posts-for-spe-cate/view-list-posts-for-spe-cate.component';
+import { UpdatePostComponent } from './compomnents/admin/update-post/update-post.component';
 
 const routes: Routes = [
   {
@@ -76,8 +77,13 @@ const routes: Routes = [
       },
 
       {
-        path: 'add-new-post/:coId',
+        path: 'add-new-post',
         component:AddPostComponent,
+      },
+
+      {
+        path: 'update-post/:poId',
+        component:UpdatePostComponent,
       },
     ]
   },
