@@ -11,7 +11,7 @@ export class ViewPostComponent implements OnInit{
 
   postData =[
    {
-    poid: '',
+    poId: '',
     poTitle: '',
     poImageName: '',
     poContent: '',

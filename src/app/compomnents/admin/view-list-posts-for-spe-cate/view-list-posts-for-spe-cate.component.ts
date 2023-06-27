@@ -15,7 +15,7 @@ export class ViewListPostsForSpeCateComponent implements OnInit {
 
   posts =[
     {
-     poid: '',
+     poId: '',
      poTitle: '',
      poImageName: '',
      poContent: '',
