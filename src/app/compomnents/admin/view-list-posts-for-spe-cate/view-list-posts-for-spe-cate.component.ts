@@ -76,6 +76,46 @@ export class ViewListPostsForSpeCateComponent implements OnInit {
        });
            
        }
+
+
+
+//Deleting post by post id ----------------------------------------------------------------------------------------------
+      deletePostById(postId:any)
+      {  
+        Swal.fire({
+          icon: 'question',
+          title: 'Are you sure???',
+          confirmButtonText: 'Delete',
+          showCancelButton: true,
+        }).then((result)=>
+        {
+
+      //calling delete function
+        if(result.isConfirmed)
+        {
+          this.postSer.deletePost(postId).subscribe({
+            next: (data:any)=>
+            { 
+        //below function will help page to do the filter and get the accurate data after deletation 
+              console.log(data);
+              this.posts = this.posts.filter((post) => post.poId != postId)
+              Swal.fire('Success', 'Quiz successfully deleted !!', 'success');
+            
+              
+            },
+            error: (error)=>
+            {
+              console.log(error);
+              Swal.fire('Error', 'Something went wrong !! ', 'error');
+
+            }
+          });
+        }
+
+
+      });
+
+      }       
      
      
      

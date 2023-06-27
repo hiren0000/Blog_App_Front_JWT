@@ -40,10 +40,10 @@ export class PostService {
     return this.http.put(`${baseUrl}/api/category/${coId}/posts/${poId}`, post);
   }
 
-// //Deleting post by id
-//   public deletePost(poId:any)
-//   {
-//     return this.http.delete(`${baseUrl}/api/posts/${poId}`);
-//   }  
+//Deleting post by id
+  public deletePost(poId:any)
+  {
+    return this.http.delete(`${baseUrl}/api/posts/${poId}`);
+  }  
 
 }
