@@ -1,5 +1,5 @@
-<div class="bootstrap-wrapper">
-    <div class="row">
+<div class="bootstrap-wrapper" >
+    <div class="row" *ngIf="comments">
         <div class="col-md-12">
           <h1 class="mt10">List of all the Comments on this post</h1>
 
@@ -30,10 +30,20 @@
 </mat-card>
 </div>
 </div>
-</div>
+
 
 <!-- Add new post working on it  -->
 
-<div class="container text-center mt20 mb20">
+<div class="container text-center mt20 mb20" >
     <button mat-raised-button color="primary" routerLink="/admin-dash/add-new-post">Add New Comment</button>
+</div>
+
+<!-- IF nothing in comments  -->
+<div class="container text-center mt10" >
+    <mat-card>
+        <mat-card-content *ngIf="comments.length == 0">
+            <h1><b>No Comments..</b> </h1>
+        </mat-card-content>
+    </mat-card>
+</div>
 </div>
