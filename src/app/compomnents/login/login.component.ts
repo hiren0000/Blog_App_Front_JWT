@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
     this.login.generateToken(this.loginData).subscribe({
       next: (data:any)=>
       {
-        console.log(data);
+        
+        //console.log(data);
         console.log('success token');
         
         //Login----------------------------------------------setting token into the local storage 
@@ -58,7 +59,7 @@ export class LoginComponent implements OnInit {
          this.login.currentUser().subscribe({
           next: (user:any)=>
           {
-            console.log(user);
+            //console.log(user);
 
             //saving user data into the localstorage-----------------------------
             this.login.setUser(user);

@@ -32,6 +32,7 @@ import { ViewListPostsForSpeCateComponent } from './compomnents/admin/view-list-
 import {MatSelectModule} from '@angular/material/select';
 import { UpdatePostComponent } from './compomnents/admin/update-post/update-post.component';
 import { ViewCommentsComponent } from './compomnents/admin/view-comments/view-comments.component';
+import { AddCommentComponent } from './compomnents/admin/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ViewCommentsComponent } from './compomnents/admin/view-comments/view-co
     ViewPostComponent,
     ViewListPostsForSpeCateComponent,
     UpdatePostComponent,
-    ViewCommentsComponent
+    ViewCommentsComponent,
+    AddCommentComponent
   ],
 
   imports: [

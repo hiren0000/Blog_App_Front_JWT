@@ -9,7 +9,7 @@
     <button  mat-flat-button color="pink" *ngIf="!login.isLoggedIn()"><a [routerLink]="['signup']">Singup</a></button>
     <button  mat-flat-button color="pink" *ngIf="!login.isLoggedIn()"><a [routerLink]="['login']">Login</a></button>
     <button mat-flat-button color="pink"  (click)="logout()" *ngIf="login.isLoggedIn()">Logout</button>
-   <button mat-flat-button color="pink" class="ml20" *ngIf="login.isLoggedIn()">{{localUser.name}}</button> 
+   <button mat-flat-button color="pink" class="ml20" *ngIf="login.isLoggedIn()">{{login.getUser().name}}</button> 
    
 
 </mat-toolbar>

@@ -25,7 +25,8 @@ export class ViewCommentsComponent implements OnInit
         id: '',
         name: '',
         email: '',
-      }
+      },
+     
     }
   ]
     
