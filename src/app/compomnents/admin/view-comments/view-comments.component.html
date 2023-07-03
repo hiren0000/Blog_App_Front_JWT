@@ -1,0 +1,39 @@
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+          <h1 class="mt10">List of all the Comments on this post</h1>
+
+<mat-card class="mt10" *ngFor="let comment of comments">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+       
+        
+        
+    </mat-card-header>
+    <mat-card-content>
+        <h2>{{comment.user.name}}</h2>
+        <p>{{comment.content}}</p>
+       
+        
+    </mat-card-content>
+
+    <mat-card-actions>
+        
+        
+        <button mat-raised-button color="warn" class="ml10" >Delete</button>
+        
+       
+    </mat-card-actions>
+
+
+
+</mat-card>
+</div>
+</div>
+</div>
+
+<!-- Add new post working on it  -->
+
+<div class="container text-center mt20 mb20">
+    <button mat-raised-button color="primary" routerLink="/admin-dash/add-new-post">Add New Comment</button>
+</div>

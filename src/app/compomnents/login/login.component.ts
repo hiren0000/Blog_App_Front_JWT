@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       next: (data:any)=>
       {
         console.log(data);
-        console.log('success');
+        console.log('success token');
         
         //Login----------------------------------------------setting token into the local storage 
         this.login.loginUser(data.token);

@@ -21,6 +21,7 @@
         
         <button  mat-raised-button color="primary" class="ml10" [routerLink]="'/admin-dash/update-post/'+p.poId" >Update</button>
         <button mat-raised-button color="warn" class="ml10" (click)="deletePostById(p.poId)" >Delete</button>
+        <button mat-raised-button color="primary" class="ml10" [routerLink]="'/admin-dash/view-list-comments/'+p.poId" >Comments</button>
        
     </mat-card-actions>
 
