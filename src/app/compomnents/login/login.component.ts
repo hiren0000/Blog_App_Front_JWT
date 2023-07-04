@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
              //Redurecting to the USer-dash------------------
              else if(this.login.getUserRole()== 'NORMAL')
              {
-              this.router.navigate(['user-dash']);
+              this.router.navigate(['user-dash/home']);
              }
              else
              {
