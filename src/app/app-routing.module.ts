@@ -108,7 +108,7 @@ const routes: Routes = [
     children:
     [
       {
-        path: 'home',
+        path: 'category/:coId',
         component: UserWelcomeComponent,
       
       },
