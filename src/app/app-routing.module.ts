@@ -15,6 +15,8 @@ import { ViewPostComponent } from './compomnents/admin/view-post/view-post.compo
 import { AddPostComponent } from './compomnents/admin/add-post/add-post.component';
 import { ViewListPostsForSpeCateComponent } from './compomnents/admin/view-list-posts-for-spe-cate/view-list-posts-for-spe-cate.component';
 import { UpdatePostComponent } from './compomnents/admin/update-post/update-post.component';
+import { ViewCommentsComponent } from './compomnents/admin/view-comments/view-comments.component';
+import { AddCommentComponent } from './compomnents/admin/add-comment/add-comment.component';
 
 const routes: Routes = [
   {
@@ -84,6 +86,16 @@ const routes: Routes = [
       {
         path: 'update-post/:poId',
         component:UpdatePostComponent,
+      },
+
+      {
+        path: 'view-list-comments/:poId',
+        component:ViewCommentsComponent,
+      },
+
+      {
+        path: 'add-new-comment/:poId',
+        component:AddCommentComponent,
       },
     ]
   },

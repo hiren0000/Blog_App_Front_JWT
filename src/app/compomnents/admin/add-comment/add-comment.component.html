@@ -1,0 +1,30 @@
+<p>add-comment works!</p>
+<mat-card>
+    <h1 class="text-center">Add New Comment</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <!--{{category | json}} -->
+                <form (ngSubmit)="addCommentForm()">
+    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input required [(ngModel)]="comment.content"  type="text" name="poTitle" matInput placeholder="Comment-content*">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary" >Add-New-Comment</button>
+                        <button type="reset" mat-raised-button color="accent" style="margin-left: 20px;">Reset</button>
+    
+                    </div>
+    
+    
+                </form>
+    </div>
+     </div>
+    </div>
+    
+    </mat-card-content>
+</mat-card>

@@ -9,20 +9,12 @@ import { LoginServiceService } from 'src/app/service/login-service.service';
 })
 export class NavbarComponent implements OnInit {
 
-  localUser = 
-  {
-    id : '',
-    name: '',
-    email: '',
-    pass: '',
-    about: '',
-  };
-
+  
   constructor(public  login:LoginServiceService, private router:Router) { }
 
   ngOnInit(): void 
   {
-     this.localUser = this.login.getUser();
+     
   }
 
   public logout()
