@@ -17,6 +17,7 @@ import { ViewListPostsForSpeCateComponent } from './compomnents/admin/view-list-
 import { UpdatePostComponent } from './compomnents/admin/update-post/update-post.component';
 import { ViewCommentsComponent } from './compomnents/admin/view-comments/view-comments.component';
 import { AddCommentComponent } from './compomnents/admin/add-comment/add-comment.component';
+import { UserWelcomeComponent } from './compomnents/user/user-welcome/user-welcome.component';
 
 const routes: Routes = [
   {
@@ -103,8 +104,16 @@ const routes: Routes = [
   {
     path: 'user-dash',
     component: UserDashComponent,
-    pathMatch: 'full',
     canActivate: [NormalGuard],
+    children:
+    [
+      {
+        path: 'category/:coId',
+        component: UserWelcomeComponent,
+      
+      },
+
+    ]
   }
  
 ];
