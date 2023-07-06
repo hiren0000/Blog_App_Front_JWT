@@ -28,6 +28,12 @@ export class PostService {
     return this.http.get(`${baseUrl}/api/category/${coId}/posts`)
   }  
 
+//Fetching List of posts for specific user
+  public getListofPostsByUser(userId:any)
+  {
+    return this.http.get(`${baseUrl}/api/user/${userId}/posts`)
+  }  
+
 //Fetching single post by id
   public getSinglePost(poId:any)
   {
