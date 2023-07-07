@@ -1,27 +1,11 @@
 <div class="bootstrap-wrapper">
     <div class="container-fluid">
         <!-- We can also print post here  -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12 mt10">
-                   <mat-card>
-                    <form (ngSubmit)="searchForm()" >
-                        <div class="row">
-                            <div class="col-md-8">
-                            <mat-form-field class="full-width" appearance="outline">
-                                
-                                <input required [(ngModel)]="keyword" type="text" name="searchKey" matInput placeholder="Search Post by keyword*">
-                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                            </mat-form-field>
-                         </div>
-                         <div class="col-md-3 ml10">
-                            <button type="submit" mat-raised-button color="primary" mat-list-icon> <mat-icon>search</mat-icon></button>
-                        </div>
-                        </div>
-                        
-                    </form>
-                   </mat-card>
+                    <h2>Search bar can be implemneted here..</h2>
                 </div>
-            </div>
+            </div> -->
             <div class="row" *ngIf="postData">
             <div class="col-md-12" *ngFor="let p of postData">
                 <mat-card class="mt10">
@@ -62,3 +46,4 @@
         </div>
     </div>
 </div>
+

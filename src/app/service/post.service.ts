@@ -32,7 +32,13 @@ export class PostService {
   public getListofPostsByUser(userId:any)
   {
     return this.http.get(`${baseUrl}/api/user/${userId}/posts`)
-  }  
+  } 
+  
+//Fetching List of posts for given keyword in search bar  
+ public getListofPostsSearch(keyword:any)
+  {
+    return this.http.get(`${baseUrl}/api/posts/search/${keyword}`)
+  } 
 
 //Fetching single post by id
   public getSinglePost(poId:any)
