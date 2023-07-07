@@ -18,6 +18,8 @@ import { UpdatePostComponent } from './compomnents/admin/update-post/update-post
 import { ViewCommentsComponent } from './compomnents/admin/view-comments/view-comments.component';
 import { AddCommentComponent } from './compomnents/admin/add-comment/add-comment.component';
 import { UserWelcomeComponent } from './compomnents/user/user-welcome/user-welcome.component';
+import { UserProfileComponent } from './compomnents/user/user-profile/user-profile.component';
+import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-posts.component';
 
 const routes: Routes = [
   {
@@ -110,6 +112,18 @@ const routes: Routes = [
       {
         path: 'category/:coId',
         component: UserWelcomeComponent,
+      
+      },
+
+      {
+        path: 'my-profile',
+        component: UserProfileComponent,
+      
+      },
+
+      {
+        path: 'view-my-posts',
+        component: ViewMyPostsComponent,
       
       },
 

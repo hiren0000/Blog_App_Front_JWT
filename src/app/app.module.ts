@@ -35,6 +35,8 @@ import { ViewCommentsComponent } from './compomnents/admin/view-comments/view-co
 import { AddCommentComponent } from './compomnents/admin/add-comment/add-comment.component';
 import { UserSideBarComponent } from './compomnents/user/user-side-bar/user-side-bar.component';
 import { UserWelcomeComponent } from './compomnents/user/user-welcome/user-welcome.component';
+import { UserProfileComponent } from './compomnents/user/user-profile/user-profile.component';
+import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-posts.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { UserWelcomeComponent } from './compomnents/user/user-welcome/user-welco
     ViewCommentsComponent,
     AddCommentComponent,
     UserSideBarComponent,
-    UserWelcomeComponent
+    UserWelcomeComponent,
+    UserProfileComponent,
+    ViewMyPostsComponent
   ],
 
   imports: [
