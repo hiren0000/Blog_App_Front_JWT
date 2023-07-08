@@ -1,0 +1,20 @@
+
+.prof
+{
+    width: 100%;
+    height: auto;
+    
+
+}
+
+
+.prof img
+{
+    max-width: 50px;
+    max-height: 50px;
+    border: 2px solid blanchedalmond;
+    border-radius: 50%;
+}
+
+
+

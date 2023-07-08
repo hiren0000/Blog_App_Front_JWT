@@ -21,6 +21,7 @@ import { UserWelcomeComponent } from './compomnents/user/user-welcome/user-welco
 import { UserProfileComponent } from './compomnents/user/user-profile/user-profile.component';
 import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-posts.component';
 import { SearchPostTitleComponent } from './compomnents/user/search-post-title/search-post-title.component';
+import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-post.component';
 
 const routes: Routes = [
   {
@@ -131,6 +132,12 @@ const routes: Routes = [
       {
         path: 'search-post-title/:keyword',
         component: SearchPostTitleComponent,
+      
+      },
+
+      {
+        path: 'add-new-post',
+        component: UserAddPostComponent,
       
       },
 
