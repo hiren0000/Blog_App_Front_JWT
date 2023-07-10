@@ -39,6 +39,7 @@ import { UserProfileComponent } from './compomnents/user/user-profile/user-profi
 import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-posts.component';
 import { SearchPostTitleComponent } from './compomnents/user/search-post-title/search-post-title.component';
 import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-post.component';
+import { UserUpdatePostComponent } from './compomnents/user/user-update-post/user-update-post.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-
     UserProfileComponent,
     ViewMyPostsComponent,
     SearchPostTitleComponent,
-    UserAddPostComponent
+    UserAddPostComponent,
+    UserUpdatePostComponent
   ],
 
   imports: [

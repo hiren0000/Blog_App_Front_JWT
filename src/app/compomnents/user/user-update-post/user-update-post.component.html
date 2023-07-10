@@ -1,0 +1,61 @@
+<mat-card>
+    <h1 class="text-center">Update Quiz</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                   <!-- {{quizData | json}} -->
+    <!-------------------------------------------------------------------------------------------------------------->           
+                 <form *ngIf="post" (ngSubmit)="updatePostForm()">
+    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input required [(ngModel)]="post.poTitle"  type="text" name="poTitle" matInput placeholder="Post-Title*">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+    
+                    <!-- <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Image</mat-label>
+                        <input required [(ngModel)]="post.poImageName"  type="text" name="poImageName" matInput placeholder="Insert Image*" > 
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                    </mat-form-field> -->
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Content</mat-label>
+                        <textarea required [(ngModel)]="post.poContent"  name="poContent" type="text" matInput placeholder="Post-Content*" rows="7"></textarea>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                    </mat-form-field>
+
+                    <!-- <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Creation-Date</mat-label>
+                        <input required [(ngModel)]="post.poDate" name="poDate" type="date" matInput placeholder="Creation-Date*"> 
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                    </mat-form-field> -->
+
+                    <br />
+
+                    <mat-form-field appearance="fill" class="full-width mt20">
+                        <mat-label>Categories</mat-label>
+                        <mat-select name='category' required [(ngModel)]="post.category.coId">
+                          <mat-option *ngFor="let c of categories" [value]="c.coId">
+                            {{c.coName}}
+                          </mat-option>
+                        </mat-select>               
+                     </mat-form-field>
+    
+    
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary" >Update-Post</button>
+                        <button type="reset" mat-raised-button color="accent" style="margin-left: 20px;">Reset</button>
+    
+                    </div>
+    
+    
+                </form>
+    </div>
+     </div>
+    </div>
+    
+    </mat-card-content>
+</mat-card>

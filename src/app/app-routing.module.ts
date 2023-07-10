@@ -22,6 +22,7 @@ import { UserProfileComponent } from './compomnents/user/user-profile/user-profi
 import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-posts.component';
 import { SearchPostTitleComponent } from './compomnents/user/search-post-title/search-post-title.component';
 import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-post.component';
+import { UserUpdatePostComponent } from './compomnents/user/user-update-post/user-update-post.component';
 
 const routes: Routes = [
   {
@@ -138,6 +139,12 @@ const routes: Routes = [
       {
         path: 'add-new-post',
         component: UserAddPostComponent,
+      
+      },
+
+      {
+        path: 'user-update-post/:poId',
+        component: UserUpdatePostComponent,
       
       },
 
