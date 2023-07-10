@@ -23,6 +23,7 @@ import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-p
 import { SearchPostTitleComponent } from './compomnents/user/search-post-title/search-post-title.component';
 import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-post.component';
 import { UserUpdatePostComponent } from './compomnents/user/user-update-post/user-update-post.component';
+import { UserUpdateComponent } from './compomnents/user/user-update/user-update.component';
 
 const routes: Routes = [
   {
@@ -121,6 +122,12 @@ const routes: Routes = [
       {
         path: 'my-profile',
         component: UserProfileComponent,
+      
+      },
+
+      {
+        path: 'update-user',
+        component: UserUpdateComponent,
       
       },
 
