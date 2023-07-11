@@ -41,6 +41,10 @@ import { SearchPostTitleComponent } from './compomnents/user/search-post-title/s
 import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-post.component';
 import { UserUpdatePostComponent } from './compomnents/user/user-update-post/user-update-post.component';
 import { UserUpdateComponent } from './compomnents/user/user-update/user-update.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
+
+
 
 @NgModule({
   declarations: [
@@ -69,7 +73,8 @@ import { UserUpdateComponent } from './compomnents/user/user-update/user-update.
     SearchPostTitleComponent,
     UserAddPostComponent,
     UserUpdatePostComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    CommentDialogueComponent
   ],
 
   imports: [
@@ -85,7 +90,9 @@ import { UserUpdateComponent } from './compomnents/user/user-update/user-update.
     HttpClientModule,
     MatCardModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
+    
  
   ],
   providers: [MatSnackBarModule, SingupService, authInterceptorProviders],
