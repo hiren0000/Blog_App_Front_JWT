@@ -17,6 +17,7 @@ export class UserWelcomeComponent implements OnInit
   cid='';
 
   keyword = "";
+  
 
   postData =[
     {
@@ -57,6 +58,10 @@ export class UserWelcomeComponent implements OnInit
 
   ngOnInit(): void 
   {
+
+    
+    
+
      this.route.params.subscribe((params)=>
      {
       this.cid = params['coId'];
@@ -147,9 +152,11 @@ export class UserWelcomeComponent implements OnInit
 
   }
 
-//Open dialouge box for comments 
-    openDialog() {
-      const dialogRef = this.dialog.open(CommentDialogueComponent);
+//Open dialouge box for comments---- this will be implemented later----
+   /* openDialog() 
+    {
+      //sedning value with the dialog 
+      const dialogRef = this.dialog.open(CommentDialogueComponent, {data: { postId : this.postIdForComm},});
 
       dialogRef.afterClosed().subscribe({
       next: (result:any)=>
@@ -164,5 +171,5 @@ export class UserWelcomeComponent implements OnInit
            
     });
     }  
-
+*/
 }

@@ -43,6 +43,7 @@ import { UserUpdatePostComponent } from './compomnents/user/user-update-post/use
 import { UserUpdateComponent } from './compomnents/user/user-update/user-update.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
+import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
 
 
 
@@ -74,7 +75,8 @@ import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/co
     UserAddPostComponent,
     UserUpdatePostComponent,
     UserUpdateComponent,
-    CommentDialogueComponent
+    CommentDialogueComponent,
+    CommentOperationsComponent
   ],
 
   imports: [
