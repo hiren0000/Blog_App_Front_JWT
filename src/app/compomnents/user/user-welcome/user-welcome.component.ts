@@ -3,6 +3,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
+import { CommentDialogueComponent } from '../comment-dialogue/comment-dialogue.component';
+import {MatDialog, MatDialogModule } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-user-welcome',
@@ -14,6 +17,7 @@ export class UserWelcomeComponent implements OnInit
   cid='';
 
   keyword = "";
+  
 
   postData =[
     {
@@ -49,10 +53,15 @@ export class UserWelcomeComponent implements OnInit
 
   constructor(private route:ActivatedRoute,
               private postService:PostService,
-              private snack:MatSnackBar) {}
+              private snack:MatSnackBar,
+              private dialog:MatDialog) {}
 
   ngOnInit(): void 
   {
+
+    
+    
+
      this.route.params.subscribe((params)=>
      {
       this.cid = params['coId'];
@@ -143,4 +152,24 @@ export class UserWelcomeComponent implements OnInit
 
   }
 
+//Open dialouge box for comments---- this will be implemented later----
+   /* openDialog() 
+    {
+      //sedning value with the dialog 
+      const dialogRef = this.dialog.open(CommentDialogueComponent, {data: { postId : this.postIdForComm},});
+
+      dialogRef.afterClosed().subscribe({
+      next: (result:any)=>
+       {
+        console.log(`Dialog result: ${result}`);
+       },
+       error: (error:any)=>
+       {
+        console.log(error);
+        
+       }     
+           
+    });
+    }  
+*/
 }

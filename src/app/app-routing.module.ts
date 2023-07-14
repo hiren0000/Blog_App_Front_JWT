@@ -23,6 +23,9 @@ import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-p
 import { SearchPostTitleComponent } from './compomnents/user/search-post-title/search-post-title.component';
 import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-post.component';
 import { UserUpdatePostComponent } from './compomnents/user/user-update-post/user-update-post.component';
+import { UserUpdateComponent } from './compomnents/user/user-update/user-update.component';
+import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
+import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
 
 const routes: Routes = [
   {
@@ -125,6 +128,12 @@ const routes: Routes = [
       },
 
       {
+        path: 'update-user',
+        component: UserUpdateComponent,
+      
+      },
+
+      {
         path: 'view-my-posts',
         component: ViewMyPostsComponent,
       
@@ -145,6 +154,12 @@ const routes: Routes = [
       {
         path: 'user-update-post/:poId',
         component: UserUpdatePostComponent,
+      
+      },
+
+      {
+        path: 'comments-operations/:poId',
+        component: CommentOperationsComponent,
       
       },
 

@@ -40,6 +40,12 @@ import { ViewMyPostsComponent } from './compomnents/user/view-my-posts/view-my-p
 import { SearchPostTitleComponent } from './compomnents/user/search-post-title/search-post-title.component';
 import { UserAddPostComponent } from './compomnents/user/user-add-post/user-add-post.component';
 import { UserUpdatePostComponent } from './compomnents/user/user-update-post/user-update-post.component';
+import { UserUpdateComponent } from './compomnents/user/user-update/user-update.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
+import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
+
+
 
 @NgModule({
   declarations: [
@@ -67,7 +73,10 @@ import { UserUpdatePostComponent } from './compomnents/user/user-update-post/use
     ViewMyPostsComponent,
     SearchPostTitleComponent,
     UserAddPostComponent,
-    UserUpdatePostComponent
+    UserUpdatePostComponent,
+    UserUpdateComponent,
+    CommentDialogueComponent,
+    CommentOperationsComponent
   ],
 
   imports: [
@@ -83,7 +92,9 @@ import { UserUpdatePostComponent } from './compomnents/user/user-update-post/use
     HttpClientModule,
     MatCardModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
+    
  
   ],
   providers: [MatSnackBarModule, SingupService, authInterceptorProviders],
