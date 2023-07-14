@@ -19,17 +19,17 @@
            
                 <div class="row col-md-8 offset-md-2 mt10">
                    <mat-card>
-                    <form  >
+                    <form (ngSubmit)="addCommentForm()" >
                         <div class="row">
                           <div class="col-md-7">
                             <mat-form-field class="full-width" appearance="outline">
                                 
-                                <input required  type="text" name="searchKey" matInput placeholder="Search Post by keyword*">
-                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                <textarea required type="text" [(ngModel)]="comment.content" name="content" matInput placeholder="Comment content*" rows="5" ></textarea>
+                                
                             </mat-form-field>
                           </div>
                          <div class="col-md-1 mt10">
-                            <button type="submit" mat-raised-button color="primary" mat-list-icon> <mat-icon>add</mat-icon>comment</button>
+                            <button  mat-raised-button color="primary" mat-list-icon> <mat-icon>add</mat-icon>comment</button>
                          </div> 
                         </div>
 
