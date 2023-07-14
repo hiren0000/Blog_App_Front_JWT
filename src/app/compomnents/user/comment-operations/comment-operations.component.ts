@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { CommentService } from 'src/app/service/comment.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
@@ -38,9 +39,16 @@ export class CommentOperationsComponent implements OnInit
     about: '',
   }
 
+  comment =   
+    {
+      coId: '',
+      content: '',
+    }
+
   constructor(private route:ActivatedRoute,
               private commentService:CommentService,
-              private userService:LoginServiceService) {}
+              private userService:LoginServiceService,
+              private snack:MatSnackBar) {}
 
   ngOnInit(): void 
   {
@@ -55,6 +63,7 @@ export class CommentOperationsComponent implements OnInit
       },
       error: (error)=>
       {
+        console.log(error);        
         Swal.fire('Error', 'error with fetching comments data !!', 'error');
       }
     });
@@ -67,5 +76,33 @@ export class CommentOperationsComponent implements OnInit
     
       
   }
+
+//Adding new comment------------------------------------------------------------------------------------------
+   addCommentForm()
+   {
+
+    if(this.comment.content == '')
+    {
+      this.snack.open('Content should not be empty', 'ok');
+      return;
+    }
+
+    this.commentService.addNewComment(this.comment, this.user.id, this.postId).subscribe({
+      next : (data:any)=>
+      {
+        //this.comments = data;
+        console.log(data);        
+        Swal.fire('Success', 'you have successfully added new comment !! ', 'success');
+      },
+      error: (error)=>
+      {
+        console.log(error);        
+        Swal.fire('Error', 'error with fetching comments data !!', 'error');
+      }
+    });
+    
+   }
+
+
 
 }
