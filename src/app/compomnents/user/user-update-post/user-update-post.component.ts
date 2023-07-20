@@ -1,6 +1,9 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/service/category.service';
+import baseUrl from 'src/app/service/helper';
 import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
 
@@ -15,9 +18,15 @@ export class UserUpdatePostComponent implements OnInit
   constructor(private route:ActivatedRoute,
     private postService:PostService,
      private catService:CategoryService,
-     private router:Router){}
+     private router:Router,
+     private snack:MatSnackBar,
+     private http:HttpClient){}
   
   poId='';
+
+  fileName = '';
+
+  postImage = '';
 
   post =
   {
@@ -53,7 +62,7 @@ export class UserUpdatePostComponent implements OnInit
       this.poId = this.route.snapshot.params['poId'];
 //      alert(this.qid);
 
-//Fetching single Quiz
+//Fetching single Post
       this.postService.getSinglePost(this.poId).subscribe({
         next: (data:any)=>
         {
@@ -95,6 +104,7 @@ export class UserUpdatePostComponent implements OnInit
       next: (data:any)=>
       {
         Swal.fire('Success', 'Successfully updated quiz ', 'success').then((e)=>{
+        
         this.router.navigate(['/user-dash/view-my-posts'])
       });
 
@@ -108,6 +118,68 @@ export class UserUpdatePostComponent implements OnInit
     });
     
   }
+
+//Selecting File from PC function---AND THAT WILL AUTOMATICALLY UPLOADED IN THE SERVER----------------------------------------------------------------------
+      onFileSelected(event:any) 
+      {
+        
+        const file:File = event.target.files[0];
+
+        if (file) {
+
+            this.fileName = file.name;
+
+            const formData = new FormData();
+          
+            formData.append("image", file);
+
+        this.http.
+        post(`${baseUrl}/api/category/${this.post.category.coId}/post/file-upload/${this.poId}`, formData).subscribe({
+          next: (data:any)=>
+          {
+            console.log(data);
+            console.log("successfully image added");
+            Swal.fire("Success", 'Post-Image successfully uploaded !!', 'success');
+            
+          },
+          error: (error)=>
+          {
+            console.log(error);
+            Swal.fire('Error', 'Something went wrong !!', 'error');
+
+          }
+        });
+
+           // upload$.subscribe();
+        }
+      }  
+  
+//Uploading file into the database--NOT WORKING ------------------------------------------------------------------------------
+   /* uploadImageSave()
+    {
+      if(this.postImage == '')
+      {
+        this.snack.open('Please select an image !!', 'X');
+        return;
+      
+
+      this.postService.uploadImg(this.postImage, this.post.category.coId, this.poId).subscribe
+      ({
+        next: (data:any)=>
+        {
+          Swal.fire("Success", 'Post-Image successfully uploaded !!', 'success');
+        },
+        error: (error)=>
+        {
+          console.log(error);
+          Swal.fire('Error', 'Something went wrong !!', 'error');
+
+        }
+      });
+     
+
+    }*/
+
 
 
 
