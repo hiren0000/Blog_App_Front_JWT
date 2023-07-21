@@ -1,5 +1,5 @@
 <mat-card>
-    <h1 class="text-center">Update Quiz</h1>
+    <h1 class="text-center">Update Post</h1>
     <mat-card-content>
         <div class="bootstrap-wrapper">
             <div class="row">
@@ -16,9 +16,12 @@
     
                     <!-- <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Image</mat-label>
-                        <input required [(ngModel)]="post.poImageName"  type="text" name="poImageName" matInput placeholder="Insert Image*" > 
-                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
+                        <input required fileUploadInputFor="post.poImageName"  type="file" name="poImageName" matInpu placeholder="Insert Image*" > 
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                         
+
+
                     </mat-form-field> -->
+
 
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Content</mat-label>
@@ -57,5 +60,32 @@
      </div>
     </div>
     
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-content class="mt20">
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                <!-- uploading image  -->
+
+                <div class="file-upload-in">
+                    <h2>upload post Image</h2>
+                    <input type="file" class="file-input" name="image" (change)="onFileSelected($event)" #fileUpload>
+                </div>
+                
+                <div class="file-upload">
+
+                    {{fileName || "No file attached yet."}}
+
+                        <button type="" mat-mini-fab color="primary" class="upload-btn"
+                        (click)="fileUpload.click()">
+                            <mat-icon>attach_file</mat-icon>
+                        </button>
+                </div>
+
+       
+        </div>
+        </div>
+        </div>
     </mat-card-content>
 </mat-card>

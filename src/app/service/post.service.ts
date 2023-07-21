@@ -56,6 +56,12 @@ export class PostService {
   public deletePost(poId:any)
   {
     return this.http.delete(`${baseUrl}/api/posts/${poId}`);
+  } 
+  
+//uploading image into DB
+  public uploadImg(postImg:any, coId:any, poId:any)
+  {
+    return this.http.post(`${baseUrl}/api/category/${coId}/post/file-upload/${poId}`, postImg);
   }  
 
 }
