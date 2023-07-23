@@ -44,6 +44,7 @@ import { UserUpdateComponent } from './compomnents/user/user-update/user-update.
 import {MatDialogModule} from '@angular/material/dialog';
 import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
 import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
+import { OtpVerificationComponent } from './compomnents/otp-verification/otp-verification.component';
 
 
 
@@ -77,7 +78,8 @@ import { CommentOperationsComponent } from './compomnents/user/comment-operation
     UserUpdatePostComponent,
     UserUpdateComponent,
     CommentDialogueComponent,
-    CommentOperationsComponent
+    CommentOperationsComponent,
+    OtpVerificationComponent
   ],
 
   imports: [

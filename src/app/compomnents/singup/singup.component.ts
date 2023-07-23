@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { SingupService } from 'src/app/service/singup.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class SingupComponent implements OnInit {
     about: "",
   }
 
-  constructor(private signup:SingupService, private snak:MatSnackBar ) { }
+  constructor(private signup:SingupService, private snak:MatSnackBar, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -33,10 +34,11 @@ export class SingupComponent implements OnInit {
     }
     
     this.signup.register(this.data).subscribe
-    ({ next: (response)=>
+    ({ next: (response:any)=>
       {
         console.log(response);
         this.snak.open("User has successfully saved in database","Ok" );
+        this.router.navigate(['otp-verification']);
       },
       error: (error)=>
       {

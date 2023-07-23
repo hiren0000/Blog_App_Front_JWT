@@ -65,14 +65,16 @@
     <mat-card-content class="mt20">
         <div class="bootstrap-wrapper">
             <div class="row">
-                <div class="col-md-10 offset-md-1">
+                <div class="col-md-6 offset-md-2">
                 <!-- uploading image  -->
 
                 <div class="file-upload-in">
-                    <h2>upload post Image</h2>
+                    <div class="show-img">
+                        <!-- trying to fetch image here !! -->
+                    </div>
                     <input type="file" class="file-input" name="image" (change)="onFileSelected($event)" #fileUpload>
                 </div>
-                
+
                 <div class="file-upload">
 
                     {{fileName || "No file attached yet."}}
