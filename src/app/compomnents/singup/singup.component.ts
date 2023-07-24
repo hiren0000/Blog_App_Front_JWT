@@ -10,11 +10,24 @@ import { SingupService } from 'src/app/service/singup.service';
 })
 export class SingupComponent implements OnInit {
 
-  data= {
+  data= 
+  {
+    id: '',
     name: "",
     email:"",
     pass:"",
     about: "",
+  }
+
+  userData =
+  {
+    
+      id: '',
+      name: "",
+      email:"",
+      pass:"",
+      about: "",
+    
   }
 
   constructor(private signup:SingupService, private snak:MatSnackBar, private router:Router) { }
@@ -37,8 +50,9 @@ export class SingupComponent implements OnInit {
     ({ next: (response:any)=>
       {
         console.log(response);
+        this.userData = response;
         this.snak.open("User has successfully saved in database","Ok" );
-        this.router.navigate(['otp-verification']);
+        this.router.navigate(['/otp-verification/'],{queryParams:{order:this.userData.id}});
       },
       error: (error)=>
       {

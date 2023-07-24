@@ -50,7 +50,7 @@ const routes: Routes = [
   {
     path:"otp-verification",
     component:OtpVerificationComponent,
-    pathMatch:"full"
+   
   },
 
 
