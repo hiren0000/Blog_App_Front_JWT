@@ -2,13 +2,14 @@
 
 This project is FrontEnd of the BlogRestAPIJWT project.
 
-## Development server
+## Security
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Jwt Secured app with Authorization Interceptor, and also with Authentication Guard.
 
-## Code scaffolding
+## Supporting Functions 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+it supports all the functions and is GUI-ready for the Register, Login, Crud, Post, comment and so on.
+
 
 ## Build
 
