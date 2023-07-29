@@ -8,12 +8,20 @@ Jwt Secured app with Authorization Interceptor, and also with Authentication Gua
 
 ## Supporting Functions 
 
-it supports all the functions and is GUI-ready for the Register, Login, Crud, Post, comment and so on.
+it supports all the functions and is GUI-ready for the Register, Login, Crud, Post, comment, and so on.
 
+## Roles
 
-## Build
+The app supports role-based authentication
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Admin-Role
+
+This allows users to add new functionalities for normal users.
+
+## User-Noraml-Role
+
+where users can add their post, do modification in the post in their own details only 
+
 
 ## Running unit tests
 
