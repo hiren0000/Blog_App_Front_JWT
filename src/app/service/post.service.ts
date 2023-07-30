@@ -64,4 +64,10 @@ export class PostService {
     return this.http.post(`${baseUrl}/api/category/${coId}/post/file-upload/${poId}`, postImg);
   }  
 
+//Fetching Image from db
+  public getImage(ImageName:any)
+  {
+    return this.http.get(`${baseUrl}/api/post/image/${ImageName}`);
+  }  
+
 }

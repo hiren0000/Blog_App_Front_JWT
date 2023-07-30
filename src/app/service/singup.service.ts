@@ -15,7 +15,7 @@ export class SingupService {
 //Adding New user-----------------------------------------------------------------------------  
   register(data:any)
   {
-    return this.http.post(`${baseUrl}/api/users/`, data);
+    return this.http.post(`${baseUrl}/api/users/registration`, data);
   }
 
 //Update existing user by user id-----------------------------------------------------------

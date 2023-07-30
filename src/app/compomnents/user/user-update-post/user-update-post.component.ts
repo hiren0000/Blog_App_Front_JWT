@@ -27,6 +27,8 @@ export class UserUpdatePostComponent implements OnInit
   fileName = '';
 
   postImage = '';
+  
+
 
   post =
   {
@@ -62,12 +64,34 @@ export class UserUpdatePostComponent implements OnInit
       this.poId = this.route.snapshot.params['poId'];
 //      alert(this.qid);
 
-//Fetching single Post
+//Fetching single Post=====================================================================================
       this.postService.getSinglePost(this.poId).subscribe({
         next: (data:any)=>
         {
           this.post=data;
           console.log(this.post);
+          console.log(this.post.poImageName);
+
+          //trying to fetch image from DB----------------------------------------------------------
+          if(this.post.poImageName != '')
+          {
+            this.postService.getImage(this.post.poImageName).subscribe
+            ({
+              next: (data:any)=>
+              {
+                console.log(data);
+                
+              },
+              error: (error)=>
+              {
+                console.log(error);
+                Swal.fire('Error', 'Something went wrong !!', 'error');
+      
+              }
+            });
+           
+          }
+          
         },
         error :(error)=>
         {
@@ -77,7 +101,7 @@ export class UserUpdatePostComponent implements OnInit
         }
       });
 
-//Fethcing categoris 
+//Fethcing categoris============================================================================================ 
       this.catService.getListOfCategories().subscribe({
         next: (data:any)=>
         {

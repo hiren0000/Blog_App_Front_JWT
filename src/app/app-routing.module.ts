@@ -26,6 +26,7 @@ import { UserUpdatePostComponent } from './compomnents/user/user-update-post/use
 import { UserUpdateComponent } from './compomnents/user/user-update/user-update.component';
 import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
 import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
+import { OtpVerificationComponent } from './compomnents/otp-verification/otp-verification.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,13 @@ const routes: Routes = [
     component:SingupComponent,
     pathMatch:"full"
   },
+
+  {
+    path:"otp-verification",
+    component:OtpVerificationComponent,
+   
+  },
+
 
   {
     path: 'admin-dash',

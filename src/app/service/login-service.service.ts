@@ -93,4 +93,11 @@ export class LoginServiceService {
           return user.authorities[0].authority;
         }
 
+//Get user by user Id for the OTP verification
+        public getUserForOTP(userId:any)
+        {
+          return this.http.get(`${baseUrl}/api/users/${userId}`);
+        }
+
+
 }
