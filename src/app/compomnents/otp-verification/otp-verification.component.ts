@@ -13,11 +13,10 @@ export class OtpVerificationComponent implements OnInit
 {
   Otp = '';
 
-  userId = '';
+  userId:any = '';
 
   user = 
-  {
-   
+  {  
    
       id: '',
       name: "",
@@ -30,7 +29,8 @@ export class OtpVerificationComponent implements OnInit
 
   constructor(private snack:MatSnackBar,
               private route:ActivatedRoute,
-              private userService:LoginServiceService) {}
+              private userService:LoginServiceService,
+              private login:LoginServiceService) {}
 
   ngOnInit(): void 
   {
@@ -52,32 +52,32 @@ export class OtpVerificationComponent implements OnInit
       
   }
 
-//=============================================
-  public getUserforOtp()
+  //getting current user details---------------------------------------------------------------------
+  getUserDetails() 
   {
-    //getting user-----------------------------------------------------
-    this.userService.getUserForOTP(this.userId).subscribe
-    ({
-      next: (userData:any)=>
-      {
-        this.user = userData;
-        console.log(this.user.otp);
-        
-      },
-      error: (error)=>
-      {
-        console.log(error);        
-        Swal.fire('Error', 'Something wrong with OTP verification !! ', 'error');
-      }
+    console.log('Inside user details method --');
 
-    });
+    if(this.login.getUser() == '')
+    {
+      this.snack.open('User does not exist', "X");
+      return;
+    }
+    else
+    {
+      this.user = this.login.getUser();
+      return this.user;
+    }
+    
+
   }
 
 //OtpForm to verify email----------------------------------------------------------------------------------  
   otpForm()
   {
 
-    this.getUserforOtp();
+    this.getUserDetails() 
+
+    //this.getUserforOtp();
 
     if(this.user.otp == this.Otp)
     {
