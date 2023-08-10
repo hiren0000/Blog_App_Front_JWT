@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EnDecServiceService } from 'src/app/service/en-dec-service.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
 import Swal from 'sweetalert2';
 
@@ -41,7 +42,7 @@ export class OtpVerificationComponent implements OnInit
     
   }
 
-
+  decryptPass = '';
 
   loginDatas = 
   {
@@ -52,7 +53,8 @@ export class OtpVerificationComponent implements OnInit
   constructor(private snack:MatSnackBar,
               private route:ActivatedRoute,
               private login:LoginServiceService,
-              private router:Router) {}
+              private router:Router,
+              private enDecrSer:EnDecServiceService) {}
 
   ngOnInit(): void 
   {
@@ -134,6 +136,10 @@ landingPage()
   this.loginDatas.email = this.user.email;
   this.loginDatas.pass = this.user.pass;
 
+ this.decryptPass = this.enDecrSer.get('password',this.loginDatas.pass);
+ console.log(this.decryptPass);
+  
+
   console.log(this.loginDatas);
 
   this.login.generateToken(this.loginDatas).subscribe
@@ -145,7 +151,7 @@ landingPage()
       console.log('success token');
       
       //Login----------------------------------------------setting token into the local storage 
-      this.login.loginUser(dataForLog.token);
+     /* this.login.loginUser(dataForLog.token);
       console.log(dataForLog.token);
       
 
@@ -156,7 +162,7 @@ landingPage()
         this.router.navigate(['user-dash/category/0']);
      } 
         
-      
+      */
       
     },
 

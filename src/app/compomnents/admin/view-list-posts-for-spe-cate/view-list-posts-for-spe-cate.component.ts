@@ -62,7 +62,9 @@ export class ViewListPostsForSpeCateComponent implements OnInit {
          next : (data:any) =>
          {
            
-           this.posts=data;
+           this.posts=data.PostData;
+           console.log(data);
+           
            console.log(this.posts);
      
          },

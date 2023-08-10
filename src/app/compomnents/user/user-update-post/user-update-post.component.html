@@ -71,6 +71,8 @@
                 <div class="file-upload-in">
                     <div class="show-img">
                         <!-- trying to fetch image here !! -->
+                        <img [attr.src]="'/api/post/image/'+imageData " />
+                       
                     </div>
                     <input type="file" class="file-input" name="image" (change)="onFileSelected($event)" #fileUpload>
                 </div>
