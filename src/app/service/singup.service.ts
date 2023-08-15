@@ -23,5 +23,18 @@ export class SingupService {
   {
     return this.http.put(`${baseUrl}/api/users/${userId}`, user);
   }
+
+//OTP-verification function------------------------------------------------------------------------------
+ otpVerify(userId:any, Otp:any)
+ {
+    return this.http.post(`${baseUrl}/api/users/otp-verification`, userId);
+ }
+
+//OTP-verification function------------------------------------------------------------------------------ 
+ otpVerifyByOtp(Otp:any)
+ {
+    return this.http.post(`${baseUrl}/api/users/otp-verification/${Otp}`, Otp);
+ }
+ 
   
 }

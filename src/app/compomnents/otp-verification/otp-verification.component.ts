@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EnDecServiceService } from 'src/app/service/en-dec-service.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
+import { SingupService } from 'src/app/service/singup.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class OtpVerificationComponent implements OnInit
 {
-  Otp = '';
+  otp = '';
 
   userId:any = '';
 
@@ -54,11 +55,12 @@ export class OtpVerificationComponent implements OnInit
               private route:ActivatedRoute,
               private login:LoginServiceService,
               private router:Router,
-              private enDecrSer:EnDecServiceService) {}
+              private enDecrSer:EnDecServiceService,
+              private singServ:SingupService) {}
 
   ngOnInit(): void 
   {
-    this.snack.open('Please check your email For the OTP', 'X');
+    /*this.snack.open('Please check your email For the OTP', 'X');
 
     //this.userId = this.route.snapshot.params['id'];
     this.route.queryParams.subscribe
@@ -70,14 +72,14 @@ export class OtpVerificationComponent implements OnInit
         
       }
 
-    })  
+    })  */
     
     
       
   }
 
   //getting current user details---------------------------------------------------------------------
-  getUserDetails() 
+ /* getUserDetails() 
   {
     console.log('Inside user details method --');
 
@@ -93,18 +95,18 @@ export class OtpVerificationComponent implements OnInit
     }
     
 
-  }
+  }*/
 
 //OtpForm to verify email----------------------------------------------------------------------------------  
   otpForm()
   {
 
-    this.getUserDetails() 
+   // this.getUserDetails() 
 
     //this.getUserforOtp();
 
-    if(this.user.otp == this.Otp)
-    {
+   // if(this.user.otp == this.Otp)
+   // {
     //naviagting user to home page....Think we need do something because Auth guard protection is stopping.
     //check the login service and normal Authguard as well..
     console.log('OTP are equal');
@@ -112,25 +114,42 @@ export class OtpVerificationComponent implements OnInit
       this.localToken = this.login.getToken();
       console.log(this.localToken);
       console.log(this.user);
-      this.landingPage();
-      
+     
+
+      //sending OTP to backend for verification----------------------------------------------------------------
+      this.singServ.otpVerifyByOtp(this.otp).subscribe
+      ({
+         next: (data:any)=>
+         {
+           console.log(data);
+           this.router.navigate(['user-dash/category/0']);
+          // this.landingPage();
+         },
+         error: (error)=>
+         {
+            console.log(error);
+            this.snack.open("something went wrong with Backend Otp verification ", 'X');
+         }
+      });
+      //Backend Otp finished--------------------------------
       
 
     //this.router.navigate(['user-dash/category/0']);
 
     
-    }
-    else
+   // }
+    /*else
     {
       this.snack.open('OTP is incorrect !!, Re-Enter the accurate OTP  ', 'X');
       return;
-    }
+    }*/
     
     
   }
 
 
 //Login function so if OTP is verified we can navigate user to home page
+/*
 landingPage()
 {
   this.loginDatas.email = this.user.email;
@@ -151,7 +170,7 @@ landingPage()
       console.log('success token');
       
       //Login----------------------------------------------setting token into the local storage 
-     /* this.login.loginUser(dataForLog.token);
+      this.login.loginUser(dataForLog.token);
       console.log(dataForLog.token);
       
 
@@ -161,8 +180,7 @@ landingPage()
         console.log('navigating user......');
         this.router.navigate(['user-dash/category/0']);
      } 
-        
-      */
+         
       
     },
 
@@ -172,7 +190,7 @@ landingPage()
       this.snack.open('Some issues with generating token !!  ', 'X');
 
     }
-  });  
+  }); */
 
       
 /*//Getting current user data from DB=========================================================
@@ -224,6 +242,6 @@ landingPage()
 }
 
 
-}  
+ 
 
 
