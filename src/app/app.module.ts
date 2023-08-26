@@ -46,6 +46,7 @@ import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/co
 import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
 import { OtpVerificationComponent } from './compomnents/otp-verification/otp-verification.component';
 import { EnDecServiceService } from './service/en-dec-service.service';
+import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-password.component';
 
 
 
@@ -80,7 +81,8 @@ import { EnDecServiceService } from './service/en-dec-service.service';
     UserUpdateComponent,
     CommentDialogueComponent,
     CommentOperationsComponent,
-    OtpVerificationComponent
+    OtpVerificationComponent,
+    ForgotPasswordComponent
   ],
 
   imports: [
