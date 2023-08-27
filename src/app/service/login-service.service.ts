@@ -99,5 +99,11 @@ export class LoginServiceService {
           return this.http.get(`${baseUrl}/api/users/${userId}`);
         }
 
+//forget-password function, 
+        public forgetPass(email:any)
+        {
+          return this.http.post(`${baseUrl}/api/users/forget-password/${email}`, email);
+        }        
+
 
 }
