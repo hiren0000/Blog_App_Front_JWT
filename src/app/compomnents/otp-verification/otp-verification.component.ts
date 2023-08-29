@@ -17,6 +17,8 @@ export class OtpVerificationComponent implements OnInit
 
   userId:any = '';
 
+  forgetPassword = '';
+
   localToken:any
 
   user = 
@@ -31,26 +33,7 @@ export class OtpVerificationComponent implements OnInit
     
   }
 
-  currentUser = 
-  {  
-   
-      id: '',
-      name: "",
-      email:"",
-      pass:"",
-      about: "",
-      otp: '',
-    
-  }
-
-  decryptPass = '';
-
-  loginDatas = 
-  {
-    email: '',
-    pass: '',
-  }
-
+  
   constructor(private snack:MatSnackBar,
               private route:ActivatedRoute,
               private login:LoginServiceService,
@@ -62,60 +45,36 @@ export class OtpVerificationComponent implements OnInit
   {
     /*this.snack.open('Please check your email For the OTP', 'X');
 
-    //this.userId = this.route.snapshot.params['id'];
+    //this.userId = this.route.snapshot.params['id'];*/
     this.route.queryParams.subscribe
     ({
       next : (data:any)=>
       {
-        this.userId = data.order;
-        console.log(this.userId);
-        
+        this.forgetPassword = data.frogrtPass;
+        console.log(this.forgetPassword);        
       }
 
-    })  */
+    })  
     
     
       
   }
 
-  //getting current user details---------------------------------------------------------------------
- /* getUserDetails() 
-  {
-    console.log('Inside user details method --');
-
-    if(this.login.getUser() == '')
-    {
-      this.snack.open('User does not exist', "X");
-      return;
-    }
-    else
-    {
-      this.user = this.login.getUser();
-      return this.user;
-    }
-    
-
-  }*/
+ 
 
 //OtpForm to verify email----------------------------------------------------------------------------------  
   otpForm()
   {
 
-   // this.getUserDetails() 
-
-    //this.getUserforOtp();
-
-   // if(this.user.otp == this.Otp)
-   // {
-    //naviagting user to home page....Think we need do something because Auth guard protection is stopping.
-    //check the login service and normal Authguard as well..
+   
     console.log('OTP are equal');
     
       this.localToken = this.login.getToken();
       console.log(this.localToken);
       console.log(this.user);
      
-
+   if(this.forgetPassword != 'true' || this.forgetPassword == null || this.forgetPassword == undefined)
+   {
       //sending OTP to backend for verification----------------------------------------------------------------
       this.singServ.otpVerifyByOtp(this.otp).subscribe
       ({
@@ -123,7 +82,7 @@ export class OtpVerificationComponent implements OnInit
          {
            console.log(data);
            this.router.navigate(['user-dash/category/0']);
-          // this.landingPage();
+         
          },
          error: (error)=>
          {
@@ -131,6 +90,29 @@ export class OtpVerificationComponent implements OnInit
             this.snack.open("something went wrong with Backend Otp verification ", 'X');
          }
       });
+      return;
+   }
+
+//This is for Forget-Password attempt================================================
+    if(this.forgetPassword == 'true')
+    {
+      //sending OTP to backend for verification----------------------------------------------------------------
+      this.login.OtpVerifyForForgetPass(this.otp).subscribe
+      ({
+         next: (data:any)=>
+         {
+           console.log(data);
+           this.router.navigate(['user-dash/category/0']);
+          
+         },
+         error: (error)=>
+         {
+            console.log(error);
+            this.snack.open("something went wrong with Backend Otp verification ", 'X');
+         }
+      });
+      return;
+    }
       //Backend Otp finished--------------------------------
       
 

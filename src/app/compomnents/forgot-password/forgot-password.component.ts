@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/service/login-service.service';
@@ -37,8 +37,17 @@ export class ForgotPasswordComponent implements OnInit
       next: (data:any)=>
       {
         console.log(data);
-        this.router.navigate(['/otp-verification']);
         
+        if(data.user == null)
+        {
+          console.error();          
+          return;           
+                  
+        }
+        else
+        {
+        this.router.navigate(['/otp-verification'],{queryParams:{frogrtPass:'true'}});
+        }
       },
       error: (error)=>
       {
