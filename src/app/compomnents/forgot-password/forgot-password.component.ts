@@ -40,13 +40,14 @@ export class ForgotPasswordComponent implements OnInit
         
         if(data.user == null)
         {
-          console.error();          
+          console.log(data);
+                
           return;           
                   
         }
         else
         {
-        this.router.navigate(['/otp-verification'],{queryParams:{frogrtPass:'true'}});
+        this.router.navigate(['/otp-verification'],{queryParams:{forgetPass:'true'}});
         }
       },
       error: (error)=>

@@ -1,0 +1,32 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        
+            <div class="row">
+                <div class="col-md-12 mt10">
+                   <mat-card>
+                    <form (ngSubmit)="ForgetPassResetForm()" >
+                        <div class="row">
+                            <div class="col-md-8">
+                            <!-- <h1>OTP</h1> -->
+                            <mat-form-field class="full-width" appearance="outline">                                
+                                <input required [(ngModel)]="user.password" type="password" name="password" matInput placeholder="Enter your New Password*">
+                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            </mat-form-field>
+
+                            <mat-form-field class="full-width" appearance="outline">                                
+                                <input required [(ngModel)]="retypepass" type="password"  matInput placeholder="Re-Enter your New Password*">
+                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            </mat-form-field>
+
+                         </div>
+                         <div class="col-md-3 mt10 text-center">
+                            <button type="submit" mat-raised-button color="primary" mat-list-icon> <mat-icon>ok</mat-icon>Save</button>
+                        </div>
+                        </div>
+                        </form>
+                        </mat-card>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+

@@ -27,6 +27,7 @@ import { UserUpdateComponent } from './compomnents/user/user-update/user-update.
 import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
 import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
 import { OtpVerificationComponent } from './compomnents/otp-verification/otp-verification.component';
+import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
    
   },
 
+  {
+    path: 'forget-password',
+    component: ForgotPasswordComponent
+  },
 
   {
     path: 'admin-dash',

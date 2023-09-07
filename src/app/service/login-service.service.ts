@@ -108,7 +108,7 @@ export class LoginServiceService {
 //Otp verificaton for forget password
         public OtpVerifyForForgetPass(otp:any)
         {
-          return this.http.post(`${baseUrl}/api/users//otp-verification/forget-pass/${otp}`, otp);
+          return this.http.post(`${baseUrl}/api/users/otp-verification/forget-pass/${otp}`, otp);
         }
         
 

@@ -50,7 +50,7 @@ export class OtpVerificationComponent implements OnInit
     ({
       next : (data:any)=>
       {
-        this.forgetPassword = data.frogrtPass;
+        this.forgetPassword = data.forgetPass;
         console.log(this.forgetPassword);        
       }
 
@@ -62,7 +62,7 @@ export class OtpVerificationComponent implements OnInit
 
  
 
-//OtpForm to verify email----------------------------------------------------------------------------------  
+//OtpForm to verify email OTP----------------------------------------------------------------------------------  
   otpForm()
   {
 
@@ -80,14 +80,14 @@ export class OtpVerificationComponent implements OnInit
       ({
          next: (data:any)=>
          {
-           console.log(data);
+           console.log(data);         
            this.router.navigate(['user-dash/category/0']);
          
          },
          error: (error)=>
          {
             console.log(error);
-            this.snack.open("something went wrong with Backend Otp verification ", 'X');
+            this.snack.open("something went wrong with Backend Otp verification for signup ", 'X');
          }
       });
       return;
@@ -102,13 +102,14 @@ export class OtpVerificationComponent implements OnInit
          next: (data:any)=>
          {
            console.log(data);
-           this.router.navigate(['user-dash/category/0']);
+           this.user = data;
+           this.router.navigate(['/login'],{queryParams:{userId:this.user.id}});
           
          },
          error: (error)=>
          {
             console.log(error);
-            this.snack.open("something went wrong with Backend Otp verification ", 'X');
+            this.snack.open("something went wrong with Backend Otp verification for forger pass ", 'X');
          }
       });
       return;
