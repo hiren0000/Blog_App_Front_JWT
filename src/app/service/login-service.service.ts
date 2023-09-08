@@ -110,7 +110,12 @@ export class LoginServiceService {
         {
           return this.http.post(`${baseUrl}/api/users/otp-verification/forget-pass/${otp}`, otp);
         }
-        
+ 
+//updating pass url for forget password function
+        public updatePassForForgetFun(userId:any, user:any)
+        {
+          return this.http.put(`${baseUrl}/api/users/forget-password/resetting-password/${userId}`, user);
+        }        
 
 
 }

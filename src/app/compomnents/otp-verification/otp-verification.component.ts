@@ -102,8 +102,10 @@ export class OtpVerificationComponent implements OnInit
          next: (data:any)=>
          {
            console.log(data);
+           console.log('This is success message..');
+           
            this.user = data;
-           this.router.navigate(['/login'],{queryParams:{userId:this.user.id}});
+           this.router.navigate(['/forget-password-reset'],{queryParams:{userData:this.user.id}});
           
          },
          error: (error)=>
