@@ -62,7 +62,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'forget-password-reset',
+    path: 'forget-password-reset/:id',
     component: ForgetPassResetComponent,
     pathMatch:"full"
   },

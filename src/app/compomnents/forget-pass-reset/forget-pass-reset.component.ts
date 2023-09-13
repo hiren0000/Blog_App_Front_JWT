@@ -11,14 +11,15 @@ import { LoginServiceService } from 'src/app/service/login-service.service';
 export class ForgetPassResetComponent implements OnInit 
 {
 
-  retypePass= '';
+  retypePass = '';
 
-  id = '';
+  userId:any; 
+
+  password = '';
 
   user = 
   {
     id: '',
-    name: '',
     password: '',
   }  
 
@@ -30,35 +31,40 @@ export class ForgetPassResetComponent implements OnInit
   {
      console.log('u r inside the Reset password page..');
 
-     this.route.queryParams.subscribe
+    /* this.route.queryParams.subscribe
      ({
       next : (data:any)=>
       {
+        //error is occuring here, it stated id is undefined 
         this.user.id = data.userData;
         console.log(this.user.id);        
       }
 
-    })  
+    })  */
+
+     this.userId = this.route.snapshot.paramMap.get('id');
+     console.log(this.userId);
+     
       
   }
 
   //changing the password---------------------
   ForgetPassResetForm()
   {
-    if(this.user.password != this.retypePass)
+    if(this.password != this.retypePass)
     {
       this.snack.open('Password must be equal, try again !!');
       return;
     }
 
-    if(this.id == null || this.id == undefined)
+    if(this.userId == null || this.userId == undefined)
     {
       this.snack.open('please use the OTP, and follow the steps to reset your password !!', 'X');
       return;
     }
 
     //function to change the password from backend------------------------------------------------------
-    this.login.updatePassForForgetFun(this.id, this.user).subscribe
+    this.login.updatePassForForgetFun(this.userId, this.password).subscribe
     ({
       next: (data:any)=>
       {

@@ -112,9 +112,9 @@ export class LoginServiceService {
         }
  
 //updating pass url for forget password function
-        public updatePassForForgetFun(userId:any, user:any)
+        public updatePassForForgetFun(userId:any, password:any)
         {
-          return this.http.put(`${baseUrl}/api/users/forget-password/resetting-password/${userId}`, user);
+          return this.http.put(`${baseUrl}/api/users/forget-password/resetting-password/${userId}`, password);
         }        
 
 

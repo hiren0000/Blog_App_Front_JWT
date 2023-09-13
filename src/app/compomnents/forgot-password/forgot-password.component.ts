@@ -47,7 +47,7 @@ export class ForgotPasswordComponent implements OnInit
         }
         else
         {
-        this.router.navigate(['/otp-verification'],{queryParams:{forgetPass:'true'}});
+        this.router.navigate(['/otp-verification'],{queryParams:{forgetPass:true}});
         }
       },
       error: (error)=>

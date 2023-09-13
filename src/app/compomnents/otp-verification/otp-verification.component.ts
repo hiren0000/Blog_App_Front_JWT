@@ -17,7 +17,7 @@ export class OtpVerificationComponent implements OnInit
 
   userId:any = '';
 
-  forgetPassword = '';
+  forgetPassword:boolean = false;
 
   localToken:any
 
@@ -69,11 +69,11 @@ export class OtpVerificationComponent implements OnInit
    
     console.log('OTP are equal');
     
-      this.localToken = this.login.getToken();
-      console.log(this.localToken);
-      console.log(this.user);
+      //this.localToken = this.login.getToken();
+     // console.log(this.localToken);
+      //console.log(this.user);
      
-   if(this.forgetPassword != 'true' || this.forgetPassword == null || this.forgetPassword == undefined)
+   if(!this.forgetPassword)
    {
       //sending OTP to backend for verification----------------------------------------------------------------
       this.singServ.otpVerifyByOtp(this.otp).subscribe
@@ -90,11 +90,11 @@ export class OtpVerificationComponent implements OnInit
             this.snack.open("something went wrong with Backend Otp verification for signup ", 'X');
          }
       });
-      return;
+      //return;
    }
 
 //This is for Forget-Password attempt================================================
-    if(this.forgetPassword == 'true')
+    if(this.forgetPassword)
     {
       //sending OTP to backend for verification----------------------------------------------------------------
       this.login.OtpVerifyForForgetPass(this.otp).subscribe
@@ -104,9 +104,10 @@ export class OtpVerificationComponent implements OnInit
            console.log(data);
            console.log('This is success message..');
            
-           this.user = data;
-           this.router.navigate(['/forget-password-reset'],{queryParams:{userData:this.user.id}});
-          
+           this.user = data.user;   
+           
+          this.router.navigateByUrl('/forget-password-reset/'+this.user.id);
+
          },
          error: (error)=>
          {
@@ -114,7 +115,7 @@ export class OtpVerificationComponent implements OnInit
             this.snack.open("something went wrong with Backend Otp verification for forger pass ", 'X');
          }
       });
-      return;
+      //return;
     }
       //Backend Otp finished--------------------------------
       
