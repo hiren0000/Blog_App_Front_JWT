@@ -67,6 +67,8 @@ const routes: Routes = [
     pathMatch:"full"
   },
 
+// Admin-dash started from the below=================================================================================  
+
   {
     path: 'admin-dash',
     component: AdminDashComponent,
@@ -129,6 +131,8 @@ const routes: Routes = [
       },
     ]
   },
+
+// User-dash starting from below===================================================================================
 
   {
     path: 'user-dash',

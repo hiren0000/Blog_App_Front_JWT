@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/service/login-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forget-pass-reset',
@@ -25,7 +26,8 @@ export class ForgetPassResetComponent implements OnInit
 
   constructor(private route:ActivatedRoute,
               private snack:MatSnackBar,
-              private login:LoginServiceService) {}
+              private login:LoginServiceService,
+              private router:Router) {}
 
   ngOnInit(): void 
   {
@@ -69,8 +71,24 @@ export class ForgetPassResetComponent implements OnInit
       next: (data:any)=>
       {
         console.log(data);
-        this.snack.open('Password successfully udpated !!', 'OK');  
+        this.snack.open('Password successfully udpated !!', 'OK');
+        
+        //send user to the login page..with the help of SwtAlert
+        Swal.fire({
+          icon: 'success',
+          title: 'Password successfully changed !!',
+          confirmButtonText: 'OK',
+          showCancelButton: false,
+
+          }).then((result:any)=>
+          {       
+              if(result.isConfirmed)
+              {
+                this.router.navigate(['login']);
+              }
+          });
       },
+      
       error: (error)=>
       {
         console.log(error);
