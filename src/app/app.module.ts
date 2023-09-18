@@ -49,6 +49,7 @@ import { EnDecServiceService } from './service/en-dec-service.service';
 import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-password.component';
 import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget-pass-reset.component';
 import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.component';
+import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
 
 
 
@@ -86,7 +87,8 @@ import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.componen
     OtpVerificationComponent,
     ForgotPasswordComponent,
     ForgetPassResetComponent,
-    ViewBlogsComponent
+    ViewBlogsComponent,
+    BlogDashComponent
   ],
 
   imports: [
