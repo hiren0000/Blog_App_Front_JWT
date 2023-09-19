@@ -29,6 +29,8 @@ import { CommentOperationsComponent } from './compomnents/user/comment-operation
 import { OtpVerificationComponent } from './compomnents/otp-verification/otp-verification.component';
 import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-password.component';
 import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget-pass-reset.component';
+import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
+import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.component';
 
 const routes: Routes = [
   {
@@ -188,6 +190,20 @@ const routes: Routes = [
       
       },
 
+    ]
+  },
+
+//Blog-dash0 starting from here.====================================================================================== 
+
+  {
+    path: 'blog-dash',
+    component: BlogDashComponent,
+    children:
+    [
+      {
+        path: 'category/:coId',
+        component: ViewBlogsComponent,
+      }
     ]
   }
  
