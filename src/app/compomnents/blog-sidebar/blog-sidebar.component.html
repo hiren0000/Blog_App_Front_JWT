@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>Menu</div>
+        <!-- <button mat-list-item routerLink="/user-dash/category/0"><mat-icon mat-list-icon>home</mat-icon>Home</button>
+        <button mat-list-item routerLink="/user-dash/my-profile"><mat-icon mat-list-icon>account_circle</mat-icon>Your_Profile</button>
+        <button mat-list-item routerLink="/user-dash/view-my-posts"><mat-icon mat-list-icon>local_post_office</mat-icon>My-Posts</button> -->
+        <button mat-list-item [routerLink]="'/blog-dash/category/'+c.coId" *ngFor="let c of categories" ><mat-icon mat-list-icon>category</mat-icon>{{c.coName}}</button>
+        
+        
+        <!-- <button mat-list-item routerLink="#"><mat-icon mat-list-icon>logout</mat-icon>Logout</button> -->
+
+
+    </mat-action-list>
+
+
+
+</mat-card>

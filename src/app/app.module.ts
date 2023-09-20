@@ -50,6 +50,7 @@ import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-pa
 import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget-pass-reset.component';
 import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.component';
 import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
+import { BlogSidebarComponent } from './compomnents/blog-sidebar/blog-sidebar.component';
 
 
 
@@ -88,7 +89,8 @@ import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
     ForgotPasswordComponent,
     ForgetPassResetComponent,
     ViewBlogsComponent,
-    BlogDashComponent
+    BlogDashComponent,
+    BlogSidebarComponent
   ],
 
   imports: [
