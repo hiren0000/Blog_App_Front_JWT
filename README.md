@@ -20,7 +20,11 @@ This allows users to add new functionalities for normal users.
 
 ## User-Noraml-Role
 
-where users can add their post, do modification in the post in their own details only 
+where users can add their posts, do modifications to the post in their own details only 
+
+## Email
+
+This app also serves Email support, I mean when users attempt to register, they will get an email containing OTP. In addition, If a user does not submit the OTP, the system will not let in or login into the secure page, it will just be disabled the account temporary
 
 
 ## Running unit tests
