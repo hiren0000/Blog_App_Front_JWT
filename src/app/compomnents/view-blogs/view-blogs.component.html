@@ -14,24 +14,34 @@
                                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                                 </mat-form-field>
                             </div>
-                            <div class="col-md-3 mt10">
+                            <div class="col-md-4 full-width mt10">
                                 <button type="submit" mat-raised-button color="primary" mat-list-icon>
                                     <mat-icon>search</mat-icon></button>
+
+                                <button type="submit" style="margin-left: 10px;" routerLink="/user-dash/add-new-post" mat-raised-button
+                                    color="primary" mat-list-icon> <mat-icon>add</mat-icon>New-Post</button>
                             </div>
+                            
+                                
+                            
                         </div>
-                        <div class="row text-center mt10">
-                            <div class="newPostBtn col-md-4 text-center">
+
+                        <!-- This was for adding new Post which was look bit weird 
+                            <div class="row text-center mt10">
+                            <div class="newPostBtn col-md-12 text-center">
                                 <button type="submit" routerLink="/user-dash/add-new-post" mat-raised-button
                                     color="primary" mat-list-icon> <mat-icon>add</mat-icon>New-Post</button>
                             </div>
-                        </div>
+                        </div> -->
 
                     </form>
                 </mat-card>
             </div>
         </div>
+
+        <!-- showing list of posts  -->
         <div class="row" *ngIf="postData">
-            <div class="col-md-12" *ngFor="let p of postData">
+            <div class="col-md-4" *ngFor="let p of postData">
                 <mat-card class="mt10">
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image"></div>
@@ -52,7 +62,7 @@
                     </div>
 
                     <mat-card-actions>
-                        <button mat-button color="primary">View</button>
+                        <button mat-button color="primary">Read</button>
 
                         <!-- Button trigger modal-- need to work on this later
                              <button mat-button  name={{postIdForComm}}  [value]="p.poId"  (click)="openDialog()" color="primary">Comment</button> -->

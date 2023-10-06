@@ -19,7 +19,7 @@ export class PostService {
 //Getting all the list of posts
   public getListofPosts()
   {
-    return this.http.get(`${baseUrl}/api/posts`);
+    return this.http.get(`${baseUrl}/api/posts/`);
   } 
  
 //Fetching List of posts for specific category

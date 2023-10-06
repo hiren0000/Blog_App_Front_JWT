@@ -15,7 +15,7 @@ export class CategoryService {
 //---In this function we only can see limited categories on page because of pagination
     public getListOfCategories()
     {
-      return this.http.get(`${baseUrl}/api/category/`);
+      return this.http.get(`${baseUrl}/api/category/list`);
     }
   
     //Add new Caregory
