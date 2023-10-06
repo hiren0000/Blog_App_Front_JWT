@@ -11,21 +11,30 @@
     height: 500px;
 }
 
+.footer
+{
+    background-color: aqua;
+    height: 10px;
+    width: 100%;
+}
 
 .footerone
 {
     background-color: chocolate;
-    width: 100%;
+    width: 300px;
+    height: 200px;
 }
 
 .footertwo
 {
     background-color: bisque;
-    width: 100%;
+    width: 300px;
+    height: 200px;
 }
 
 .footerthree
 {
     background-color: rgb(30, 220, 122);
-    width: 100%;
+    width: 300px;
+    height: 200px;
 }
