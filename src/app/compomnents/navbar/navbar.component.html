@@ -8,7 +8,7 @@
     <span><a href=" ">Blog_App</a></span>
     <span class="divider"></span>
     
-    <button  mat-flat-button color="pink" style="margin-left: 10px;" ><a style="text-decoration-color: blueviolet;" routerLink="/blog-dash/category/0">MyBlogs</a></button>
+    <button  mat-flat-button color="pink" style="margin-left: 10px;" ><a  routerLink="/blog-dash/category/0">Blogs</a></button>
     <button  mat-flat-button color="pink" style="margin-left: 10px;" ><a [routerLink]="['login']">Write</a></button>
     <button  mat-flat-button color="pink" *ngIf="!login.isLoggedIn()" style="margin-left: 10px;"><a [routerLink]="['signup']">Singup</a></button>
     <button  mat-flat-button color="pink" *ngIf="!login.isLoggedIn()" style="margin-left: 10px;"><a [routerLink]="['login']">Login</a></button>

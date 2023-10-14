@@ -31,6 +31,7 @@ import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-pa
 import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget-pass-reset.component';
 import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
 import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.component';
+import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blog/reading-specific-blog.component';
 
 const routes: Routes = [
   {
@@ -203,6 +204,11 @@ const routes: Routes = [
       {
         path: 'category/:coId',
         component: ViewBlogsComponent,
+      },
+
+      {
+        path: 'reading-specific-Blog/:poId',
+        component: ReadingSpecificBlogComponent,
       }
     ]
   }
