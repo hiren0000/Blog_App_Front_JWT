@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
 
@@ -53,7 +53,8 @@ export class ViewBlogsComponent
   constructor(private route:ActivatedRoute,
               private postService:PostService,
               private snack:MatSnackBar,
-              private dialog:MatDialog) {}
+              private dialog:MatDialog,
+              private router:Router) {}
 
   ngOnInit(): void 
   {
@@ -145,6 +146,27 @@ export class ViewBlogsComponent
         });     
 
   }
+
+//when press comment button throw dialouge fir login navigation-=========================================
+   public adviseToLogin()
+    {
+      Swal.fire({
+        icon: 'info',
+        title: 'Login to add comment !!',
+        confirmButtonText: 'Yes',
+        showCancelButton: true,
+      }).then((result)=>
+      {
+
+    //calling delete function
+      if(result.isConfirmed)
+      {
+        this.router.navigate(['login']);
+      }
+      });
+   }
+
+   
 
 
 }
