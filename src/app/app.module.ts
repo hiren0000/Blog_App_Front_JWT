@@ -52,6 +52,7 @@ import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.componen
 import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
 import { BlogSidebarComponent } from './compomnents/blog-sidebar/blog-sidebar.component';
 import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blog/reading-specific-blog.component';
+import { AboutUsComponent } from './compomnents/about-us/about-us.component';
 
 
 
@@ -92,7 +93,8 @@ import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blo
     ViewBlogsComponent,
     BlogDashComponent,
     BlogSidebarComponent,
-    ReadingSpecificBlogComponent
+    ReadingSpecificBlogComponent,
+    AboutUsComponent
   ],
 
   imports: [

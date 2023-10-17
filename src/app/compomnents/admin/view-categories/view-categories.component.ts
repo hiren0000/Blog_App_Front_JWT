@@ -27,7 +27,7 @@ ngOnInit(): void{
     next : (data:any) =>
     {
       
-      this.categories=data;
+      this.categories=data.category;
       console.log(this.categories);
 
     },
