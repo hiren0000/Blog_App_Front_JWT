@@ -1,0 +1,20 @@
+Rest API keys
+
+"user" is the key for the User object.
+
+"PostData" is the key for the Post Object and it supports some exception objects as well.
+
+"category" represents the Category Object and it also supports few exceptions.
+
+"comment" represents the Comment Object.
+
+##Exception 
+
+"PostData.content" is the key for when we fetch the list of posts because we also use the pagination function for fetching all the list functions.
+
+"category.content" is the key when we fetch the list of categories because we also use the pagination function for fetching all the list functions.
+
+
+
+
+
