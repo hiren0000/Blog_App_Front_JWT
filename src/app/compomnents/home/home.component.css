@@ -11,8 +11,9 @@
     height: 700px;
 }
 
-.main-footer
+.container-footer
 {
+    margin-top: 20px;
     background-color: lightgray;
 }
 

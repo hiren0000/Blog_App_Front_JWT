@@ -58,7 +58,7 @@ export class UpdatePostComponent implements OnInit
       this.postService.getSinglePost(this.poId).subscribe({
         next: (data:any)=>
         {
-          this.post=data;
+          this.post=data.PostData;
           console.log(this.post);
         },
         error :(error)=>
@@ -73,7 +73,7 @@ export class UpdatePostComponent implements OnInit
       this.catService.getListOfCategories().subscribe({
         next: (data:any)=>
         {
-          this.categories=data;
+          this.categories=data.category;
         },
         error: (error)=>
         {
