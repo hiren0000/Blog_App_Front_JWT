@@ -53,7 +53,9 @@ export class ViewPostComponent implements OnInit{
     next : (data:any) =>
     {
       
-      this.postData=data.content;
+      this.postData=data.PostData.content;
+      console.log(data);
+      
       console.log(this.postData);
 
     },

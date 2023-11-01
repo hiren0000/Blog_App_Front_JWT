@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { windowTime } from 'rxjs';
 import { CategoryService } from 'src/app/service/category.service';
 import baseUrl from 'src/app/service/helper';
 import { PostService } from 'src/app/service/post.service';
@@ -27,6 +28,8 @@ export class UserUpdatePostComponent implements OnInit
   fileName = '';
 
   postImage = '';
+
+  imageData = "";
   
 
 
@@ -68,30 +71,10 @@ export class UserUpdatePostComponent implements OnInit
       this.postService.getSinglePost(this.poId).subscribe({
         next: (data:any)=>
         {
-          this.post=data;
+          this.post=data.PostData;
           console.log(this.post);
           console.log(this.post.poImageName);
 
-          //trying to fetch image from DB----------------------------------------------------------
-          if(this.post.poImageName != '')
-          {
-            this.postService.getImage(this.post.poImageName).subscribe
-            ({
-              next: (data:any)=>
-              {
-                console.log(data);
-                
-              },
-              error: (error)=>
-              {
-                console.log(error);
-                Swal.fire('Error', 'Something went wrong !!', 'error');
-      
-              }
-            });
-           
-          }
-          
         },
         error :(error)=>
         {
@@ -164,12 +147,32 @@ export class UserUpdatePostComponent implements OnInit
             console.log(data);
             console.log("successfully image added");
             Swal.fire("Success", 'Post-Image successfully uploaded !!', 'success');
-            
+          
+            //trying to fetch image from DB----------------------------------------------------------
+          if(this.post.poImageName != '')
+          {
+            this.postService.getImage(data.poImageName).subscribe
+            ({
+              next: (imageResponse:any)=>
+              {
+                console.log(imageResponse);
+                this.imageData = imageResponse;
+                
+              },
+              error: (error)=>
+              {
+                console.log(error);
+                Swal.fire('Error', 'Something went wrong fetching image !!', 'error');
+      
+              }
+            });
+          }  
+
           },
           error: (error)=>
           {
             console.log(error);
-            Swal.fire('Error', 'Something went wrong !!', 'error');
+            Swal.fire('Error', 'Something went wrong with uploading image !!', 'error');
 
           }
         });

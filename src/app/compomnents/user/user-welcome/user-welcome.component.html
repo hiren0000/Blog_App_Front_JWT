@@ -47,13 +47,13 @@
                        </div>
                        
                         <mat-card-actions>
-                            <button mat-button color="primary">View</button>
+                            <button mat-button [routerLink]="'/user-dash/comments-operations/'+p.poId" color="primary">Read</button>
                            
                             <!-- Button trigger modal-- need to work on this later
                              <button mat-button  name={{postIdForComm}}  [value]="p.poId"  (click)="openDialog()" color="primary">Comment</button> -->
                             
                             <!-- Using next page show comments and user also can add new comment -->
-                            <button mat-button [routerLink]="'/user-dash/comments-operations/'+p.poId" color="primary">Comment</button>
+                            <button mat-button [routerLink]="'/user-dash/comments-operations/'+p.poId" color="primary">Comment <p></p></button>
 
                         </mat-card-actions>
                     

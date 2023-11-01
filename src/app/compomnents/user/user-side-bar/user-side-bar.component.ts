@@ -31,8 +31,8 @@ export class UserSideBarComponent implements OnInit
         next : (data:any) =>
         {
           
-          this.categories=data;
-          console.log(this.categories);
+          this.categories = data.category;
+          console.log(data);
 
         },
         error: (error)=>

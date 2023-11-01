@@ -1,23 +1,57 @@
 
 <div class="container-fluid">
     <!-- We can also print post here  -->
-        <div class="row col-md-6 offset-md-3 mt10" *ngFor="let c of comments">
-          <mat-card>
+    <div class="row" *ngIf="postData">
+      <div class="col-md-12" >
+          <mat-card class="mt10">
+              <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>
+                      {{postData.poTitle}}
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                      Posted By: {{postData.user.name}}<span>{{postData.poDate}}</span>
+                  </mat-card-subtitle>
+              </mat-card-header>
+                  <mat-card-content>
+                      <p>{{postData.poContent}}</p>
+                  </mat-card-content>
+                  <div class="post-con-img text-center">  
+                  <img mat-card-image src="https://ohklife.com/cdn/shop/articles/7_panda_facts_1200x.jpg?v=1552557214" alt="Photo cute panda">
+                 </div>
+                 
+                  <mat-card-actions>
+                    
+
+                  </mat-card-actions>
+              
+          </mat-card>
+          <mat-divider></mat-divider>
+          </div>
+          </div>
+       
+ <!-- printing this post list of comments  ---------------------------------------------------------------------->
+        <div class="row col-md-12  mt20" *ngFor="let pc of postData.comments">
+            <div class="show-comment">
+          <mat-card >
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{c.user.name}}</mat-card-title>
+              <mat-card-title>{{postData.user.name}}</mat-card-title>
             </mat-card-header>
            
             <mat-card-content>
               <p>
-               {{c.content}}
+               {{pc.content}}
               </p>
             </mat-card-content>
             </mat-card>
+          </div>
             </div>
-            <!-- This is for the adding new comment -->
+
+<!-- This is for the adding new comment --------------------------------------------------------------------------->
            
-                <div class="row col-md-8 offset-md-2 mt10">
+                <div class="row col-md-12 mt10">
+                  <div class="add-new-com">
                    <mat-card>
                     <form (ngSubmit)="addCommentForm()" >
                         <div class="row">
@@ -36,14 +70,16 @@
                        
                     </form>          
                    </mat-card>
+                  </div>
                </div>
-        </div>
+</div>
 
         <!-- If there is no comments, it will show this message  -->
-        <div class="continer text-center mt20" *ngIf="comments.length == 0" >
+        <div class="continer text-center mt20" *ngIf="postData.comments.length == 0" >
             <h1>No comments available.. </h1>
 
 
         </div>
+      
        
         

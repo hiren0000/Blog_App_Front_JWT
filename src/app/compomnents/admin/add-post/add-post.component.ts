@@ -68,7 +68,7 @@ export class AddPostComponent implements OnInit {
       this.categoryService.getListOfCategories().subscribe({
         next: (data:any)=>
         {
-          this.categories = data;      
+          this.categories = data.category;      
           
         },
         error: (error)=>
@@ -94,7 +94,10 @@ export class AddPostComponent implements OnInit {
         this.postService.AddNewPost(this.post, this.userData.id, this.post.category.coId).subscribe({
           next: (data:any)=>
           {
+            //here we can see now Server sends the data in similar format only....
             console.log(data);
+           // console.log(data.Status);
+           // console.log(data.message);
             Swal.fire('Success', 'Post added successfully ', 'success');
             
           },

@@ -45,6 +45,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CommentDialogueComponent } from './compomnents/user/comment-dialogue/comment-dialogue.component';
 import { CommentOperationsComponent } from './compomnents/user/comment-operations/comment-operations.component';
 import { OtpVerificationComponent } from './compomnents/otp-verification/otp-verification.component';
+import { EnDecServiceService } from './service/en-dec-service.service';
 
 
 
@@ -103,7 +104,7 @@ import { OtpVerificationComponent } from './compomnents/otp-verification/otp-ver
     
  
   ],
-  providers: [MatSnackBarModule, SingupService, authInterceptorProviders],
+  providers: [MatSnackBarModule, SingupService, authInterceptorProviders, EnDecServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

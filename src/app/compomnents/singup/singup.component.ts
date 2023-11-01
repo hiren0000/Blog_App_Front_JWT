@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { EnDecServiceService } from 'src/app/service/en-dec-service.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
 import { SingupService } from 'src/app/service/singup.service';
 import Swal from 'sweetalert2';
@@ -42,7 +43,7 @@ export class SingupComponent implements OnInit
 
   }
 
-  
+  decryptPass = '';
 
   user =
   {
@@ -58,7 +59,8 @@ export class SingupComponent implements OnInit
   constructor(private signup:SingupService,
               private snak:MatSnackBar,
               private router:Router,
-              private login:LoginServiceService) { }
+              private login:LoginServiceService,
+              private enDecrSer:EnDecServiceService) { }
 
   ngOnInit(): void 
   {
@@ -89,6 +91,11 @@ export class SingupComponent implements OnInit
         
         this.loginDatas.email = this.data.email;
         this.loginDatas.pass = this.data.pass;
+
+        this.decryptPass = this.enDecrSer.get('password',this.userData.pass);
+        console.log(this.userData.pass);
+        
+        console.log(this.decryptPass);
 
         console.log(this.loginDatas);
 

@@ -84,8 +84,10 @@ export class ViewMyPostsComponent implements OnInit
       this.postService.getListofPostsByUser(this.user.id).subscribe
       ({
         next: (data:any)=>
-        {
-          this.postData = data;
+        
+        { 
+          console.log(data);        
+          this.postData = data.PostData;
           console.log(this.postData);
           
         },

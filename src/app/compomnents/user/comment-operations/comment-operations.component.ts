@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { CommentService } from 'src/app/service/comment.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
+import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,6 +15,38 @@ export class CommentOperationsComponent implements OnInit
 {
 
   postId = '';
+
+  postData =
+    {
+     poId: '',
+     poTitle: '',
+     poImageName: '',
+     poContent: '',
+     poDate: '',
+     category: 
+     {
+       coId: '',
+       coName: '',
+       coDes: '',
+     },
+     user: 
+     {
+       id: '',
+       name: '',
+       email:'',
+       pass: '',
+       about: '',
+     }, 
+     comments :
+     [
+       {
+         coId: '',
+         content: '',
+       }
+     ]
+   };
+   
+  
 
   comments = 
   [
@@ -30,6 +63,7 @@ export class CommentOperationsComponent implements OnInit
     }
   ]
 
+  //below functions are for adding new comment 
   user = 
   {
     id : '',
@@ -48,18 +82,33 @@ export class CommentOperationsComponent implements OnInit
   constructor(private route:ActivatedRoute,
               private commentService:CommentService,
               private userService:LoginServiceService,
-              private snack:MatSnackBar) {}
+              private snack:MatSnackBar,
+              private postService:PostService) {}
 
   ngOnInit(): void 
   {
     this.postId = this.route.snapshot.params['poId'];
     console.log(this.postId);
 
-//Fetching list of comments for specific Post with it;s user---------------------------------------------------
+/*Fetching list of comments for specific Post with it;s user---------------------------------------------------
     this.commentService.getListOfCommByPo(this.postId).subscribe({
       next : (data:any)=>
       {
-        this.comments = data;
+        this.comments = data.comment;
+      },
+      error: (error)=>
+      {
+        console.log(error);        
+        Swal.fire('Error', 'error with fetching comments data !!', 'error');
+      }
+    });*/
+
+    this.postService.getSinglePost(this.postId).subscribe({
+      next : (data:any)=>
+      {
+        this.postData = data.PostData;
+        console.log(data);
+        
       },
       error: (error)=>
       {

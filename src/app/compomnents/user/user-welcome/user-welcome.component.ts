@@ -74,7 +74,7 @@ export class UserWelcomeComponent implements OnInit
         this.postService.getListofPosts().subscribe({
           next: (data:any)=>
           {
-            this.postData = data.content;
+            this.postData = data.PostData.content;
             console.log(data);
             
           },
@@ -96,7 +96,7 @@ export class UserWelcomeComponent implements OnInit
         this.postService.getListofPostsByCat(this.cid).subscribe({
           next: (data:any)=>
           {
-            this.postData = data;
+            this.postData = data.PostData;
             console.log(this.postData);
             
           },
