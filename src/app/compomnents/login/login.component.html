@@ -19,13 +19,14 @@
                 <input required [(ngModel)]="loginData.email" type="text" name="email" matInput placeholder="UserName/Email*">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                
             </mat-form-field>
-            <a routerLink="/forget-password">forgot Password?</a>
+          
 
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Password</mat-label>
                 <input required [(ngModel)]="loginData.pass" type="password" name="pass" matInput placeholder="Password*">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
             </mat-form-field>
+            <a routerLink="/forget-password">forgot Password?</a>
 
                               
             
@@ -33,6 +34,10 @@
                 <button type="submit" mat-raised-button color="primary" >Login</button>
                 <button type="reset" mat-raised-button color="accent" style="margin-left: 20px;">clear</button>
 
+            </div>
+
+            <div class="register-container mt20">
+               <h2>If you dont have an account,<a routerLink="/signup">Register here</a></h2>
             </div>
 
            
