@@ -53,6 +53,7 @@ import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
 import { BlogSidebarComponent } from './compomnents/blog-sidebar/blog-sidebar.component';
 import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blog/reading-specific-blog.component';
 import { AboutUsComponent } from './compomnents/about-us/about-us.component';
+import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.component';
 
 
 
@@ -94,7 +95,8 @@ import { AboutUsComponent } from './compomnents/about-us/about-us.component';
     BlogDashComponent,
     BlogSidebarComponent,
     ReadingSpecificBlogComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    UpdateCatComponent
   ],
 
   imports: [

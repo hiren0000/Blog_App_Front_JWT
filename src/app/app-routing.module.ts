@@ -33,6 +33,7 @@ import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
 import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.component';
 import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blog/reading-specific-blog.component';
 import { AboutUsComponent } from './compomnents/about-us/about-us.component';
+import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.component';
 
 const routes: Routes = [
   {
@@ -112,6 +113,11 @@ const routes: Routes = [
         path: 'view-list-posts-for-specific-category/:coId/:coName',
         component:ViewListPostsForSpeCateComponent,
         
+      },
+
+      {
+        path: 'update-category/:coId',
+        component: UpdateCatComponent,
       },
 
       {
