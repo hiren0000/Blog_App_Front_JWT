@@ -4,6 +4,7 @@ import { CategoryService } from 'src/app/service/category.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
 import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-post',
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class AddPostComponent implements OnInit {
 
- 
+  public Editor = ClassicEditor;
   
 
   userData = 

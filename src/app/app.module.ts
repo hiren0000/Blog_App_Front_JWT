@@ -55,6 +55,7 @@ import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blo
 import { AboutUsComponent } from './compomnents/about-us/about-us.component';
 import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -115,6 +116,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     MatListModule,
     MatSelectModule,
     MatDialogModule,
+    CKEditorModule,
     NgxUiLoaderModule.forRoot({
       "bgsColor": "red",
       "bgsOpacity": 0.5,

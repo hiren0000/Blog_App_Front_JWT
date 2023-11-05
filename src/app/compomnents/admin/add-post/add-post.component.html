@@ -20,13 +20,13 @@
                         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
                     </mat-form-field>
 
-                    <mat-form-field class="full-width" appearance="outline">
+                    <!-- <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Content</mat-label>
                         <textarea required [(ngModel)]="post.poContent"  name="poContent" type="text" matInput placeholder="Post-Content*" rows="7"></textarea>
                         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
-                    </mat-form-field>
+                    </mat-form-field> -->
 
-                    
+                    <ckeditor [editor]="Editor"  data="<h2>Write your Blog</h2>" name="poContent" [(ngModel)]="post.poContent"></ckeditor>
 
                     <br />
 
