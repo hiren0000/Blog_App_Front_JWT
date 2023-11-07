@@ -56,7 +56,24 @@ import { AboutUsComponent } from './compomnents/about-us/about-us.component';
 import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
 
+
+const cookieConfig:NgcCookieConsentConfig = {
+  cookie: {
+    domain: 'localhost:4200' // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
+  },
+  palette: {
+    popup: {
+      background: '#000'
+    },
+    button: {
+      background: '#f1d600'
+    }
+  },
+  theme: 'edgeless',
+  type: 'opt-out'
+};
 
 
 
@@ -150,6 +167,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     }),
     NgxUiLoaderHttpModule.forRoot({showForeground: true, 
     }),
+    NgcCookieConsentModule.forRoot(cookieConfig)
   
    
 
