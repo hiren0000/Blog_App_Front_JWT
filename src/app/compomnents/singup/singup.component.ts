@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { timeInterval } from 'rxjs';
 import { EnDecServiceService } from 'src/app/service/en-dec-service.service';
 import { LoginServiceService } from 'src/app/service/login-service.service';
 import { SingupService } from 'src/app/service/singup.service';
@@ -84,19 +85,16 @@ export class SingupComponent implements OnInit
         console.log(response);
         this.userData = response;
         this.snak.open("User has successfully saved in database","Ok" );
+        
+        this.router.navigate(['/otp-verification']);
+
 
 //trying to implement login attempts-------------------------------------------------------------------------
-  //OTP will be sent to user's email address....without OTP can not visit home page...
+ 
         
-        
+       /* 
         this.loginDatas.email = this.data.email;
         this.loginDatas.pass = this.data.pass;
-
-        this.decryptPass = this.enDecrSer.get('password',this.userData.pass);
-        console.log(this.userData.pass);
-        
-        console.log(this.decryptPass);
-
         console.log(this.loginDatas);
 
         this.login.generateToken(this.loginDatas).subscribe
@@ -126,7 +124,7 @@ export class SingupComponent implements OnInit
                 /*if(this.login.getUserRole() == 'ADMIN')
                 {
                   this.router.navigate(['admin-dash']);
-                }*/
+                
 
      //Redirecting to the OTP-verification page.-------------------------------------------------------------------
                  if(this.login.getUserRole()== 'NORMAL')
@@ -156,12 +154,12 @@ export class SingupComponent implements OnInit
               this.snak.open('Some issues with generating token !!  ', 'X');
 
             }
-          });
+          });*/
             
 
 
       
-      }, // Generating token completed here..........
+      },  //Generating token completed here..........
       error: (error)=>
       {
         console.log(error);

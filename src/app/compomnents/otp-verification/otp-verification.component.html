@@ -4,20 +4,22 @@
             <div class="row">
                 <div class="col-md-12 mt10">
                    <mat-card>
+                    <h1>OTP</h1>
                     <form (ngSubmit)="otpForm()" >
-                        <div class="row">
-                            <div class="col-md-8">
-                            <h1>OTP</h1>
+                        <div class="row">                        
+                            
+                            <div class="col-md-8 ">
                             <mat-form-field class="full-width" appearance="outline">
                                 
-                                <input required [(ngModel)]="Otp" type="text" name="searchKey" matInput placeholder="Enter OTP from Email*">
+                                <input required [(ngModel)]="otp" type="text" name="otp" matInput placeholder="Enter OTP from Email*">
                                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                             </mat-form-field>
-                         </div>
-                         <div class="col-md-3 mt10 text-center">
-                            <button type="submit" mat-raised-button color="primary" mat-list-icon> <mat-icon>ok</mat-icon>confirm</button>
+                           </div>
+                            <div class="col-md-3 text-center mt10">
+                                <button type="submit" mat-raised-button color="primary" mat-list-icon>confirm</button>
+                            </div>
                         </div>
-                        </div>
+                        
                         </form>
                         </mat-card>
                         </div>

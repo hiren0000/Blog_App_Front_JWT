@@ -88,7 +88,7 @@ export class UserUpdatePostComponent implements OnInit
       this.catService.getListOfCategories().subscribe({
         next: (data:any)=>
         {
-          this.categories=data;
+          this.categories=data.category;
         },
         error: (error)=>
         {

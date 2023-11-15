@@ -99,5 +99,23 @@ export class LoginServiceService {
           return this.http.get(`${baseUrl}/api/users/${userId}`);
         }
 
+//forget-password function, 
+        public forgetPass(email:any)
+        {
+          return this.http.post(`${baseUrl}/api/users/forget-password/${email}`, email);
+        } 
+     
+//Otp verificaton for forget password
+        public OtpVerifyForForgetPass(otp:any)
+        {
+          return this.http.post(`${baseUrl}/api/users/otp-verification/forget-pass/${otp}`, otp);
+        }
+ 
+//updating pass url for forget password function
+        public updatePassForForgetFun(userId:any, password:any)
+        {
+          return this.http.put(`${baseUrl}/api/users/forget-password/resetting-password/${userId}`, password);
+        }        
+
 
 }

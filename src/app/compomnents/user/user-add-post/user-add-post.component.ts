@@ -56,7 +56,7 @@ export class UserAddPostComponent implements OnInit
       this.categoryService.getListOfCategories().subscribe({
         next: (data:any)=>
         {
-          this.categories = data;      
+          this.categories = data.category;      
           
         },
         error: (error)=>

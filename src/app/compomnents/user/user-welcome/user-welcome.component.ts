@@ -136,7 +136,7 @@ export class UserWelcomeComponent implements OnInit
           {
             console.log(data);
             
-            this.postData = data;
+            this.postData = data.PostData;
 
           },
           error: (error)=>
