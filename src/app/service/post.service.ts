@@ -10,7 +10,13 @@ export class PostService {
   constructor(private http:HttpClient) { }
 
 //Adding new post for specific user and category
-  public AddNewPost(post:any, id:any, coId:any)
+  public AddNewPost(post:FormData, id:any, coId:any)
+  {
+    return this.http.post(`${baseUrl}/api/user/${id}/category/${coId}/posts`, post);
+  }
+
+//Temporary for the user to add new post 
+  public AddNewPostforUser(post:any, id:any, coId:any)
   {
     return this.http.post(`${baseUrl}/api/user/${id}/category/${coId}/posts`, post);
   }

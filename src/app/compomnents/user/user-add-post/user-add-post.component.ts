@@ -82,7 +82,7 @@ export class UserAddPostComponent implements OnInit
 //Adding New Post for specific USER and Category-----------------------------------------------------------------------------------------
 addPostForm()
 {
-  this.postService.AddNewPost(this.post, this.user.id, this.post.category.coId).subscribe({
+  this.postService.AddNewPostforUser(this.post, this.user.id, this.post.category.coId).subscribe({
     next: (data:any)=>
     {
       console.log(data);

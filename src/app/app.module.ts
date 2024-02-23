@@ -56,6 +56,7 @@ import { AboutUsComponent } from './compomnents/about-us/about-us.component';
 import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
@@ -117,6 +118,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatSelectModule,
     MatDialogModule,
     CKEditorModule,
+    MatGridListModule,
     NgxUiLoaderModule.forRoot({
       "bgsColor": "red",
       "bgsOpacity": 0.5,

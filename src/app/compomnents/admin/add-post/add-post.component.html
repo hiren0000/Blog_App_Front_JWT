@@ -3,7 +3,7 @@
     <mat-card-content>
         <div class="bootstrap-wrapper">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="frmCls col-md-6 offset-md-3">
     
                     <!--{{category | json}} -->
                 <form (ngSubmit)="addPostForm()">
@@ -48,6 +48,26 @@
     
                 </form>
     </div>
+                <!-- This is the file selecting area -->
+                <div class="imgView col-md-6">
+                    <div class="fileAttachment">
+                        <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
+                    </div>
+
+                    <div class="imgPrw">
+                        <div class="row2">
+                            <mat-grid-list cols="4" rowHeight="1:1">
+                              <mat-grid-tile *ngFor="let file of post.postImages let i = index">
+                                  <div class="imgConta" style="position: relative;">
+                                      <!-- <span class="btn-remove-img" (click)="removeImages(i)">x</span> -->
+                                      <img [src]="file.url" width="100px" height="100px">
+                                  </div>
+                              </mat-grid-tile>
+                            </mat-grid-list>
+                        </div>
+                     </div>
+
+                </div>
      </div>
     </div>
 
