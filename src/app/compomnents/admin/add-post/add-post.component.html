@@ -59,7 +59,7 @@
                             <mat-grid-list cols="4" rowHeight="1:1">
                               <mat-grid-tile *ngFor="let file of post.postImages let i = index">
                                   <div class="imgConta" style="position: relative;">
-                                      <!-- <span class="btn-remove-img" (click)="removeImages(i)">x</span> -->
+                                       <span class="btn-remove-img" (click)="removeImages(i)">x</span>
                                       <img [src]="file.url" width="100px" height="100px">
                                   </div>
                               </mat-grid-tile>

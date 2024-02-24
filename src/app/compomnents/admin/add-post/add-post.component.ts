@@ -164,6 +164,13 @@ export class AddPostComponent implements OnInit {
 
           return formData;
 
-        }       
+        }  
+
+//Removing images from the selection area==============******************=================*************
+      removeImages(i: number)
+      {
+        this.post.postImages.splice(i,1);
+      }  
+
 
 }
