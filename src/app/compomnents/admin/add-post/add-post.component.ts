@@ -9,6 +9,7 @@ import { Post } from 'src/app/interfaces/post';
 import { FileHandler } from 'src/app/interfaces/FileHandler';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-post',
@@ -101,7 +102,7 @@ export class AddPostComponent implements OnInit {
   }
 
 //Adding New Post for specific USER and Category-----------------------------------------------------------------------------------------
-      addPostForm()
+      addPostForm(postForm:NgForm)
       {
 
         //sedning fromData type to backend with images
@@ -114,7 +115,9 @@ export class AddPostComponent implements OnInit {
             console.log(data);
            // console.log(data.Status);
            // console.log(data.message);
-            Swal.fire('Success', 'Post added successfully ', 'success');
+           postForm.reset();
+           Swal.fire('Success', 'Post added successfully ', 'success');
+           this.post.postImages = [];
             
           },
           error: (error: HttpErrorResponse)=>

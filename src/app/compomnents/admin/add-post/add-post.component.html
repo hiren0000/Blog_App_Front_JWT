@@ -6,7 +6,7 @@
                 <div class="frmCls col-md-6 offset-md-3">
     
                     <!--{{category | json}} -->
-                <form (ngSubmit)="addPostForm()">
+                <form #postForm="ngForm"   (ngSubmit)="addPostForm(postForm)">
     
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Title</mat-label>
