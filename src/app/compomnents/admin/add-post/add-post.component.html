@@ -49,8 +49,18 @@
                 </form>
     </div>
                 <!-- This is the file selecting area -->
-                <div class="imgView col-md-6">
+                <div class="imgView col-md-6  offset-md-3 mt20">
                     <div class="fileAttachment">
+
+                        <div class="dropzone mt10" appDrag (files) = "fileDropped($event)">
+                            <div class="browsearea">
+                                <div class="browse_area">
+                                   Drag and Drop here
+                                    <a class="browes_button" (click)="selectFile.click()">browse</a> a file
+                                </div>
+                            </div>
+                        </div>
+
                         <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
                     </div>
 

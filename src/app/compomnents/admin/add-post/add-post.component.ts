@@ -173,7 +173,13 @@ export class AddPostComponent implements OnInit {
       removeImages(i: number)
       {
         this.post.postImages.splice(i,1);
-      }  
+      } 
+
+//Drag and drop functionalities-*****************************----------------====================--------------------===================-
+      fileDropped(fileHandle:FileHandler)
+      {
+        this.post.postImages.push(fileHandle);
+      }     
 
 
 }

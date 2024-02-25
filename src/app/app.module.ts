@@ -57,6 +57,7 @@ import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.co
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { DragDirective } from './directives/drag.directive';
 
 
 
@@ -99,7 +100,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     BlogSidebarComponent,
     ReadingSpecificBlogComponent,
     AboutUsComponent,
-    UpdateCatComponent
+    UpdateCatComponent,
+    DragDirective
   ],
 
   imports: [
