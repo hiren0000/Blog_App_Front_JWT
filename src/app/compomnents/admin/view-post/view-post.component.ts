@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { Post } from 'src/app/interfaces/post';
+import { ImgProcessingService } from 'src/app/service/img-processing.service';
 import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
 
@@ -17,6 +20,7 @@ export class ViewPostComponent implements OnInit{
     poImageName: '',
     poContent: '',
     poDate: '',
+    postImages: [],
     category: 
     {
       coId: '',
@@ -41,34 +45,46 @@ export class ViewPostComponent implements OnInit{
   
   ];
 
-  constructor(private postSer:PostService) {}
+  constructor(private postSer:PostService,
+              private imgProcesSer:ImgProcessingService) {}
 
   ngOnInit(): void 
   {
     //getting list of all the post with his user and relevant category
     console.log('before main method !!');
       
-    this.postSer.getListofPosts().subscribe
-  ({
-    next : (data:any) =>
-    {
-      
-      this.postData=data.PostData.content;
-      
-      
-      console.log(this.postData);
-
-    },
-    error: (error)=>
-    {
-      console.log(error);
-      Swal.fire("Error !!", "error in fetching data", 'error');
-
-    }
-
-  });
+    this.getListttOfPosts();
 
   }
+
+   public getListttOfPosts()
+   {
+          this.postSer.getListofPosts().
+          pipe
+          (
+            map((x:any, i) => x.map((post: Post) => this.imgProcesSer.creatImages(post)))
+          )
+          .subscribe     
+        ({
+          next : (data:any) =>
+          {
+            
+            this.postData=data.PostData.content;
+            
+            
+            console.log(this.postData);
+
+          },
+          error: (error)=>
+          {
+            console.log(error);
+            Swal.fire("Error !!", "error in fetching data", 'error');
+
+          }
+
+        });
+
+}
 
  //Deleting post by post id---------------------------------------------------------------------------------------- 
    deletePostById(postId:any)
