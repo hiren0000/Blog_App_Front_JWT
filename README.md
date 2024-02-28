@@ -2,17 +2,30 @@
 
 This project is FrontEnd of the BlogRestAPIJWT project.
 
-## Development server
+## Security
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Jwt Secured app with Authorization Interceptor, and also with Authentication Guard.
 
-## Code scaffolding
+## Supporting Functions 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+it supports all the functions and is GUI-ready for the Register, Login, Crud, Post, comment, and so on.
 
-## Build
+## Roles
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The app supports role-based authentication
+
+## Admin-Role
+
+This allows users to add new functionalities for normal users.
+
+## User-Noraml-Role
+
+where users can add their posts, do modifications to the post in their own details only 
+
+## Email
+
+This app also serves Email support, I mean when users attempt to register, they will get an email containing OTP. In addition, If a user does not submit the OTP, the system will not let in or login into the secure page, it will just be disabled the account temporary
+
 
 ## Running unit tests
 
