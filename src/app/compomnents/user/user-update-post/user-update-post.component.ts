@@ -7,6 +7,7 @@ import { CategoryService } from 'src/app/service/category.service';
 import baseUrl from 'src/app/service/helper';
 import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-user-update-post',
@@ -15,6 +16,7 @@ import Swal from 'sweetalert2';
 })
 export class UserUpdatePostComponent implements OnInit 
 {
+  public Editor = ClassicEditor;
 
   constructor(private route:ActivatedRoute,
     private postService:PostService,

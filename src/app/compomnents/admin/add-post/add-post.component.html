@@ -3,10 +3,10 @@
     <mat-card-content>
         <div class="bootstrap-wrapper">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="frmCls col-md-6 offset-md-3">
     
                     <!--{{category | json}} -->
-                <form (ngSubmit)="addPostForm()">
+                <form #postForm="ngForm"   (ngSubmit)="addPostForm(postForm)">
     
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Title</mat-label>
@@ -20,13 +20,13 @@
                         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
                     </mat-form-field>
 
-                    <mat-form-field class="full-width" appearance="outline">
+                    <!-- <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Content</mat-label>
                         <textarea required [(ngModel)]="post.poContent"  name="poContent" type="text" matInput placeholder="Post-Content*" rows="7"></textarea>
                         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>                            
-                    </mat-form-field>
+                    </mat-form-field> -->
 
-                    
+                    <ckeditor [editor]="Editor"  data="<h2>Write your Blog</h2>" name="poContent" [(ngModel)]="post.poContent"></ckeditor>
 
                     <br />
 
@@ -48,6 +48,36 @@
     
                 </form>
     </div>
+                <!-- This is the file selecting area -->
+                <div class="imgView col-md-6  offset-md-3 mt20">
+                    <div class="fileAttachment">
+
+                        <div class="dropzone mt10" appDrag (files) = "fileDropped($event)">
+                            <div class="browsearea">
+                                <div class="browse_area">
+                                   Drag and Drop here
+                                    <a class="browes_button" (click)="selectFile.click()">browse</a> a file
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
+                    </div>
+
+                    <div class="imgPrw">
+                        <div class="row2">
+                            <mat-grid-list cols="4" rowHeight="1:1">
+                              <mat-grid-tile *ngFor="let file of post.postImages let i = index">
+                                  <div class="imgConta" style="position: relative;">
+                                       <span class="btn-remove-img" (click)="removeImages(i)">x</span>
+                                      <img [src]="file.url" width="100px" height="100px">
+                                  </div>
+                              </mat-grid-tile>
+                            </mat-grid-list>
+                        </div>
+                     </div>
+
+                </div>
      </div>
     </div>
 

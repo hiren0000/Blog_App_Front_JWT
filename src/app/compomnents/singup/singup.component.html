@@ -1,37 +1,53 @@
 <div class="container">
-    <div class="card">
+    
+    <mat-card>
+      <div class="container text-center">
+          <!--<img src="../../../assets/register.png" alt=""> -->
+      </div>
+      <h1 class="text-center">Resgiter</h1>
+      <!--{{user | json }}   -->
       
-        <form (ngSubmit) ="doSubmit()">
+<!---------------------------Register Form-------------------------------------------------------------------------->
+ 
 
-        <h1>Signup..</h1>
-        {{data | json}}
-        <mat-form-field class="fields" appearance="outline">
-            <mat-label>Name</mat-label>
-            <input name="name" [(ngModel)]="data.name"  matInput>
+     <!-- {{ data | json }} -->
+
+      <form (ngSubmit)="doSubmit()">
+
+          <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input required [(ngModel)]="data.name" type="text" name="name" matInput placeholder="Name*">                            
           </mat-form-field>
 
-        <mat-form-field class="fields" appearance="outline">
+          <mat-form-field class="full-width" appearance="outline">
             <mat-label>Email</mat-label>
-            <input type="email" name="email" [(ngModel)]="data.email" matInput required="required">
+            <input required [(ngModel)]="data.email" type="text" name="email" matInput placeholder="UserName/Email*">                            
+          </mat-form-field>
+        
+          <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input required [(ngModel)]="data.pass" type="password" name="password" matInput placeholder="Password*">                                         
           </mat-form-field>
 
-          <mat-form-field class="fields" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input type="password" name="pass" [(ngModel)]="data.pass" matInput required="required">
-          </mat-form-field>
-
-          <mat-form-field class="fields" appearance="outline">
+          <mat-form-field class="full-width" appearance="outline">
             <mat-label>About</mat-label>
-            <input name="about" [(ngModel)]="data.about" matInput>
+            <input required [(ngModel)]="data.about" type="text" name="about" matInput placeholder="about*">                     
           </mat-form-field>
 
-        <div class="text-center">
-          <button type="submit" mat-stroked-button>Signup</button>
-          <button type="reset"  mat-stroked-button>Reset</button>
-        </div>
-    </form>
+                            
+          
+          <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary" >Signup</button>
+              <button type="reset" mat-raised-button color="accent" style="margin-left: 20px;">Reset</button>
 
-    </div>
+          </div>
+
+         
+           
+
+
+      </form>
+  </mat-card>
 
 
 </div>

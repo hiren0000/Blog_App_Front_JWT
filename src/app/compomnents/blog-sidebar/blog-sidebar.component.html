@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>Menu</div>
+        
+        <button mat-list-item [routerLink]="'/blog-dash/category/'+c.coId" *ngFor="let c of categories" ><mat-icon mat-list-icon>category</mat-icon>{{c.coName}}</button>
+        
+        
+       
+
+
+    </mat-action-list>
+
+
+
+</mat-card>

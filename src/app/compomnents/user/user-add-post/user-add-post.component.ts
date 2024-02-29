@@ -4,6 +4,7 @@ import { PostService } from 'src/app/service/post.service';
 import Swal from 'sweetalert2';
 import { LoginComponent } from '../../login/login.component';
 import { LoginServiceService } from 'src/app/service/login-service.service';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-user-add-post',
@@ -12,6 +13,8 @@ import { LoginServiceService } from 'src/app/service/login-service.service';
 })
 export class UserAddPostComponent implements OnInit 
 {
+
+  public Editor = ClassicEditor;
 
   user = 
   {
@@ -79,7 +82,7 @@ export class UserAddPostComponent implements OnInit
 //Adding New Post for specific USER and Category-----------------------------------------------------------------------------------------
 addPostForm()
 {
-  this.postService.AddNewPost(this.post, this.user.id, this.post.category.coId).subscribe({
+  this.postService.AddNewPostforUser(this.post, this.user.id, this.post.category.coId).subscribe({
     next: (data:any)=>
     {
       console.log(data);

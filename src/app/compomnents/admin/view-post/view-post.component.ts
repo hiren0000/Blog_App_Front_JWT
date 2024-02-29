@@ -54,7 +54,7 @@ export class ViewPostComponent implements OnInit{
     {
       
       this.postData=data.PostData.content;
-      console.log(data);
+      
       
       console.log(this.postData);
 

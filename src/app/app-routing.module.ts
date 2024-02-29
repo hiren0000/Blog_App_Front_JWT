@@ -29,6 +29,11 @@ import { CommentOperationsComponent } from './compomnents/user/comment-operation
 import { OtpVerificationComponent } from './compomnents/otp-verification/otp-verification.component';
 import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-password.component';
 import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget-pass-reset.component';
+import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
+import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.component';
+import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blog/reading-specific-blog.component';
+import { AboutUsComponent } from './compomnents/about-us/about-us.component';
+import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.component';
 
 const routes: Routes = [
   {
@@ -50,6 +55,12 @@ const routes: Routes = [
   },
 
   {
+    path: 'about-us',
+    component: AboutUsComponent,
+    pathMatch: 'full'
+  },
+
+  {
     path:"otp-verification",
     component:OtpVerificationComponent,
     pathMatch:"full"
@@ -66,6 +77,8 @@ const routes: Routes = [
     component: ForgetPassResetComponent,
     pathMatch:"full"
   },
+
+// Admin-dash started from the below=================================================================================  
 
   {
     path: 'admin-dash',
@@ -103,6 +116,11 @@ const routes: Routes = [
       },
 
       {
+        path: 'update-category/:coId',
+        component: UpdateCatComponent,
+      },
+
+      {
         path: 'view-list-posts',
         component:ViewPostComponent,
         
@@ -129,6 +147,8 @@ const routes: Routes = [
       },
     ]
   },
+
+// User-dash starting from below===================================================================================
 
   {
     path: 'user-dash',
@@ -184,6 +204,25 @@ const routes: Routes = [
       
       },
 
+    ]
+  },
+
+//Blog-dash0 starting from here.====================================================================================== 
+
+  {
+    path: 'blog-dash',
+    component: BlogDashComponent,
+    children:
+    [
+      {
+        path: 'category/:coId',
+        component: ViewBlogsComponent,
+      },
+
+      {
+        path: 'reading-specific-Blog/:poId',
+        component: ReadingSpecificBlogComponent,
+      }
     ]
   }
  

@@ -48,6 +48,16 @@ import { OtpVerificationComponent } from './compomnents/otp-verification/otp-ver
 import { EnDecServiceService } from './service/en-dec-service.service';
 import { ForgotPasswordComponent } from './compomnents/forgot-password/forgot-password.component';
 import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget-pass-reset.component';
+import { ViewBlogsComponent } from './compomnents/view-blogs/view-blogs.component';
+import { BlogDashComponent } from './compomnents/blog-dash/blog-dash.component';
+import { BlogSidebarComponent } from './compomnents/blog-sidebar/blog-sidebar.component';
+import { ReadingSpecificBlogComponent } from './compomnents/reading-specific-blog/reading-specific-blog.component';
+import { AboutUsComponent } from './compomnents/about-us/about-us.component';
+import { UpdateCatComponent } from './compomnents/admin/update-cat/update-cat.component';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DragDirective } from './directives/drag.directive';
 
 
 
@@ -84,7 +94,14 @@ import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget
     CommentOperationsComponent,
     OtpVerificationComponent,
     ForgotPasswordComponent,
-    ForgetPassResetComponent
+    ForgetPassResetComponent,
+    ViewBlogsComponent,
+    BlogDashComponent,
+    BlogSidebarComponent,
+    ReadingSpecificBlogComponent,
+    AboutUsComponent,
+    UpdateCatComponent,
+    DragDirective
   ],
 
   imports: [
@@ -102,6 +119,41 @@ import { ForgetPassResetComponent } from './compomnents/forget-pass-reset/forget
     MatListModule,
     MatSelectModule,
     MatDialogModule,
+    CKEditorModule,
+    MatGridListModule,
+    NgxUiLoaderModule.forRoot({
+      "bgsColor": "red",
+      "bgsOpacity": 0.5,
+      "bgsPosition": "bottom-right",
+      "bgsSize": 60,
+      "bgsType": "ball-spin-clockwise",
+      "blur": 5,
+      "delay": 0,
+      "fastFadeOut": true,
+      "fgsColor": "red",
+      "fgsPosition": "center-center",
+      "fgsSize": 60,
+      "fgsType": "square-jelly-box",
+      "gap": 24,
+      "logoPosition": "center-center",
+      "logoSize": 70,
+      "logoUrl": "",
+      "masterLoaderId": "master",
+      "overlayBorderRadius": "0",
+      "overlayColor": "rgba(40, 40, 40, 0.8)",
+      "pbColor": "red",
+      "pbDirection": "ltr",
+      "pbThickness": 3,
+      "hasProgressBar": true,
+      "text": "please wait....",
+      "textColor": "#FFFFFF",
+      "textPosition": "center-center",
+      "maxTime": -1,
+      "minTime": 4000,
+      
+    }),
+    NgxUiLoaderHttpModule.forRoot({showForeground: true, 
+    }),
   
    
 

@@ -27,7 +27,7 @@ ngOnInit(): void{
     next : (data:any) =>
     {
       
-      this.categories=data;
+      this.categories=data.category;
       console.log(this.categories);
 
     },
@@ -41,4 +41,44 @@ ngOnInit(): void{
   });
 
  }
+
+//Delete Category===============================================================================================
+  deleteCat(coId:any)
+  {
+    //Deleting post by post id---------------------------------------------------------------------------------------- 
+     
+     Swal.fire({
+       icon: 'question',
+       title: 'Are you sure???',
+       confirmButtonText: 'Delete',
+       showCancelButton: true,
+     }).then((result)=>
+     {
+
+   //calling delete function
+     if(result.isConfirmed)
+     {
+       this.category.deleteCate(coId).subscribe({
+         next: (data:any)=>
+         { 
+     //below function will help page to do the filter and get the accurate data after deletation 
+           this.categories = this.categories.filter((category) => category.coId != coId)
+           Swal.fire('Success', 'Category successfully deleted !!', 'info');
+         },
+         error: (error)=>
+         {
+           console.log(error);
+           Swal.fire('Error', 'Something went wrong !! ', 'error');
+
+         }
+       });
+     }
+
+
+    });
+
+  }
+  
+
+
 }

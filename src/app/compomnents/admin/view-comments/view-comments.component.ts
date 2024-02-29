@@ -42,7 +42,7 @@ export class ViewCommentsComponent implements OnInit
     this.commentService.getListOfCommByPo(this.postId).subscribe({
       next: (data:any)=>
       {
-        this.comments=data;
+        this.comments=data.comment;
       },
       error: (error)=>
       {

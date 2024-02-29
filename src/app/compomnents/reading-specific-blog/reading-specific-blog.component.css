@@ -1,0 +1,12 @@
+.example-header-image 
+{
+    background-image: url('../../../assets/pro-images/img1.jpg');
+    background-size: cover;
+}
+
+  .post-con-img
+{
+  width:100%;
+  height: 80%;
+  
+}
