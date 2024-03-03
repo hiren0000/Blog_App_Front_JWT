@@ -41,7 +41,7 @@ export class ViewPostComponent implements OnInit{
         content: '',
       }
     ]
-  },
+  }
   
   ];
 

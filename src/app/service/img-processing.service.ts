@@ -37,6 +37,7 @@ export class ImgProcessingService {
    
   }
 
+  
   public dataURItoBlob(picBytes:any, imageType:any)
   {
     const byteString = window.atob(picBytes);
