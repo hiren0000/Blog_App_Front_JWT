@@ -27,6 +27,12 @@ export class PostService {
   {
     return this.http.get(`${baseUrl}/api/posts/`);
   } 
+
+  //testing 
+  public getListofPoststest()
+  {
+    return this.http.get(`${baseUrl}/api/list-of-posts/`);
+  } 
  
 //Fetching List of posts for specific category
   public getListofPostsByCat(coId:any)

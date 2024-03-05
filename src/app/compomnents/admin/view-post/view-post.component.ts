@@ -53,24 +53,14 @@ export class ViewPostComponent implements OnInit{
     //getting list of all the post with his user and relevant category
     console.log('before main method !!');
       
-    this.getListttOfPosts();
-
-  }
-
-   public getListttOfPosts()
-   {
-          this.postSer.getListofPosts().
-          pipe
-          (
-            map((x:any, i) => x.map((post: Post) => this.imgProcesSer.creatImages(post)))
-          )
-          .subscribe     
+  
+          this.postSer.getListofPoststest().subscribe     
         ({
           next : (data:any) =>
           {
             
-            this.postData=data.PostData.content;
-            
+            //this.postData=data.PostData.content;
+            this.postData = data.PostData;
             
             console.log(this.postData);
 
@@ -84,7 +74,11 @@ export class ViewPostComponent implements OnInit{
 
         });
 
-}
+
+  }
+
+  
+
 
  //Deleting post by post id---------------------------------------------------------------------------------------- 
    deletePostById(postId:any)
